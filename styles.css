@@ -10,12 +10,11 @@ a { color:inherit; text-decoration:none; }
 /* Fixed atmospheric layers create a fluid, natural-technology backdrop. */
 .atmosphere { position:fixed; z-index:-2; inset:0; overflow:hidden; background:radial-gradient(circle at 52% -15%,#123d36 0,transparent 42%),var(--base); }
 .atmosphere::after { content:""; position:absolute; inset:0; opacity:.34; background-image:linear-gradient(rgba(168,248,219,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(168,248,219,.06) 1px,transparent 1px); background-size:48px 48px; mask-image:linear-gradient(to bottom,black,transparent 78%); }
-/* Long blurred ribbons replace static blobs with a more fluid motion. */
-.stream { position:absolute; display:block; width:125vw; height:180px; border-radius:50%; filter:blur(25px); opacity:.34; transform:rotate(-15deg); animation:flow 18s ease-in-out infinite alternate; }
-.stream--teal { top:6%; left:-20%; background:linear-gradient(90deg,transparent 6%,#00c9ab 34%,#4cead6 53%,transparent 86%); }
-.stream--blue { top:38%; left:-15%; background:linear-gradient(90deg,transparent 3%,#1156c4 30%,#51a8ff 54%,transparent 82%); animation-delay:-6s; }
-.stream--lime { top:72%; left:-10%; background:linear-gradient(90deg,transparent 10%,#6cbf42 38%,#a9f36a 56%,transparent 88%); animation-delay:-12s; opacity:.2; }
-@keyframes flow { from { transform:translateX(-3%) rotate(-15deg) scaleX(.9); } to { transform:translateX(5%) rotate(-9deg) scaleX(1.05); } }
+/* Small static accents create gradual color shifts without a fluid animation. */
+.accent { position:absolute; display:block; border-radius:50%; filter:blur(35px); opacity:.2; }
+.accent--teal { width:300px; height:300px; top:11%; left:-160px; background:var(--teal); }
+.accent--blue { width:260px; height:260px; top:48%; right:-120px; background:var(--blue); }
+.accent--lime { width:190px; height:190px; top:82%; left:14%; background:var(--lime); opacity:.1; }
 
 /* Shared page width and navigation. */
 .site-header, main, footer { width:min(1200px,calc(100% - 48px)); margin:auto; }
@@ -37,7 +36,8 @@ h1 em { color:var(--teal); font-style:italic; text-shadow:0 0 35px rgba(64,225,1
 .text-link span { margin-left:12px; }
 
 /* Work grid and reusable project cards. */
-.work { padding:100px 0 120px; border-top:1px solid var(--line); }
+/* This full-bleed dark field marks the transition into focused project work. */
+.work { position:relative; z-index:0; padding:100px 0 120px; border-top:1px solid var(--line); background:#040807; box-shadow:0 0 0 100vmax #040807; clip-path:inset(0 -100vmax); }
 .section-heading,.about { display:grid; grid-template-columns:1fr 2fr; gap:24px; }
 .section-heading { margin-bottom:48px; }
 h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif; letter-spacing:-.07em; }
