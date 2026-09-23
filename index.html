@@ -102,18 +102,18 @@
           </div>
           <!-- Image sources fall back to SVG placeholders until matching JPGs are added to assets/. -->
           <div class="photo-collage" aria-label="Photo collage">
-            <picture class="photo photo--portrait">
-              <source srcset="assets/profile.jpg" type="image/jpeg" />
+            <figure class="photo photo--portrait">
               <img src="assets/profile-placeholder.svg" alt="Placeholder for Jasper Tang's profile photograph" />
-            </picture>
-            <picture class="photo photo--one">
-              <source srcset="assets/collage-01.jpg" type="image/jpeg" />
+              <img class="photo-upload" src="assets/profile.jpg" alt="Portrait of Jasper Tang" />
+            </figure>
+            <figure class="photo photo--one">
               <img src="assets/collage-01-placeholder.svg" alt="Placeholder for a portfolio collage image" />
-            </picture>
-            <picture class="photo photo--two">
-              <source srcset="assets/collage-02.jpg" type="image/jpeg" />
+              <img class="photo-upload" src="assets/collage-01.jpg" alt="Portfolio collage image" />
+            </figure>
+            <figure class="photo photo--two">
               <img src="assets/collage-02-placeholder.svg" alt="Placeholder for a portfolio collage image" />
-            </picture>
+              <img class="photo-upload" src="assets/collage-02.jpg" alt="Portfolio collage image" />
+            </figure>
           </div>
         </div>
       </section>
@@ -128,5 +128,13 @@
         <div><a href="https://github.com/jasptang">GitHub</a><a href="#top">Back to top ↑</a></div>
       </div>
     </footer>
+    <!-- Reveal uploaded photos only after they load; SVG fallbacks remain otherwise. -->
+    <script>
+      document.querySelectorAll(".photo-upload").forEach((photo) => {
+        if (photo.complete && photo.naturalWidth > 0) photo.classList.add("is-ready");
+        photo.addEventListener("load", () => photo.classList.add("is-ready"));
+        photo.addEventListener("error", () => photo.remove());
+      });
+    </script>
   </body>
 </html>

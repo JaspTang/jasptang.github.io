@@ -72,8 +72,10 @@ h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif
 .about-copy > p { max-width:570px; margin-bottom:30px; color:#b5cdc6; font-size:18px; line-height:1.55; }
 /* The collage is readable as art now and automatically displays supplied JPG photos later. */
 .photo-collage { position:relative; height:330px; }
-.photo { position:absolute; display:block; overflow:hidden; border:1px solid rgba(193,247,231,.43); background:#123d36; box-shadow:0 20px 60px rgba(0,0,0,.28); }
+.photo { position:absolute; display:block; margin:0; overflow:hidden; border:1px solid rgba(193,247,231,.43); background:#123d36; box-shadow:0 20px 60px rgba(0,0,0,.28); }
 .photo img { display:block; width:100%; height:100%; object-fit:cover; }
+.photo-upload { position:absolute; inset:0; opacity:0; transition:opacity .35s ease; }
+.photo-upload.is-ready { opacity:1; }
 .photo--portrait { z-index:2; width:66%; height:77%; top:8%; left:16%; transform:rotate(-4deg); }
 .photo--one { width:44%; height:39%; top:0; right:0; transform:rotate(7deg); }
 .photo--two { width:47%; height:35%; bottom:0; left:0; transform:rotate(5deg); }
