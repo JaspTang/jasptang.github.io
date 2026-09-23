@@ -33,9 +33,9 @@ nav a:hover, .footer-bottom a:hover { color:var(--teal); }
 .eyebrow,.project-number,.project-type { margin:0; color:var(--muted); font:12px/1.2 "DM Mono",monospace; letter-spacing:.04em; text-transform:uppercase; }
 .status-dot { display:inline-block; width:7px; height:7px; margin:0 7px 1px 0; border-radius:50%; background:var(--lime); box-shadow:0 0 12px var(--lime); }
 h1,h2,h3,p { margin-top:0; }
-h1 { max-width:1000px; margin:27px 0; font:600 clamp(58px,9.1vw,120px)/.94 "Fraunces",serif; letter-spacing:-.07em; }
+h1 { max-width:760px; margin:18px 0; font:600 clamp(42px,6vw,78px)/.96 "Fraunces",serif; letter-spacing:-.065em; }
 h1 em { color:var(--teal); font-style:italic; text-shadow:0 0 35px rgba(64,225,192,.28); }
-.hero-copy { max-width:520px; margin:0 0 30px; color:#b5cdc6; font-size:18px; line-height:1.55; }
+.hero-copy { max-width:640px; margin:0 0 30px; color:#b5cdc6; font-size:16px; line-height:1.5; }
 .text-link { width:fit-content; border-bottom:1px solid var(--teal); padding-bottom:7px; color:var(--teal); font:500 13px "DM Mono",monospace; }
 .text-link span { margin-left:12px; }
 
