@@ -79,6 +79,19 @@ h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif
 .photo--portrait { z-index:2; width:66%; height:77%; top:8%; left:16%; transform:rotate(-4deg); }
 .photo--one { width:44%; height:39%; top:0; right:0; transform:rotate(7deg); }
 .photo--two { width:47%; height:35%; bottom:0; left:0; transform:rotate(5deg); }
+
+/* Origin lab: a tactile, self-contained window into the first physics simulation. */
+.origin-lab { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr); align-items:center; gap:56px; padding:25px 0 130px; }
+.lab-stage { position:relative; min-height:420px; overflow:hidden; border:1px solid rgba(183,232,217,.3); background:linear-gradient(145deg,rgba(10,58,67,.7),rgba(4,15,18,.78)); box-shadow:inset 0 0 80px rgba(64,225,192,.06); }
+.lab-stage::before { content:""; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(193,247,231,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(193,247,231,.08) 1px,transparent 1px); background-size:32px 32px; mask-image:linear-gradient(to bottom,black,transparent); }
+#physics-canvas { position:absolute; inset:0; width:100%; height:100%; cursor:crosshair; touch-action:none; }
+.lab-hud { position:absolute; z-index:1; top:17px; left:18px; right:18px; display:flex; justify-content:space-between; color:#b5cdc6; font:10px "DM Mono",monospace; letter-spacing:.05em; pointer-events:none; }
+.lab-prompt { position:absolute; z-index:1; bottom:18px; left:18px; color:rgba(234,246,242,.62); font:10px "DM Mono",monospace; letter-spacing:.04em; pointer-events:none; }
+.lab-reset { position:absolute; z-index:2; right:17px; bottom:13px; border:1px solid rgba(193,247,231,.42); padding:7px 9px; color:var(--ink); background:rgba(4,15,18,.52); font:10px "DM Mono",monospace; cursor:pointer; }
+.lab-reset:hover { color:#041311; background:var(--teal); }
+.lab-story h2 { margin:14px 0 25px; font-size:clamp(31px,3.4vw,48px); }
+.lab-story > p:not(.eyebrow) { color:#b5cdc6; line-height:1.58; }
+
 footer { padding:70px 0 28px; border-top:1px solid var(--line); }
 .footer-email { display:block; width:fit-content; margin:22px 0 90px; color:var(--teal); font:500 clamp(38px,6.5vw,86px)/.95 "Space Grotesk",sans-serif; letter-spacing:-.075em; }
 .footer-email:hover { color:var(--lime); }
@@ -86,4 +99,4 @@ footer { padding:70px 0 28px; border-top:1px solid var(--line); }
 .footer-bottom div { display:flex; gap:24px; }
 
 /* Compact single-column layout for phones. */
-@media (max-width:720px) { .site-header,main,footer { width:min(100% - 32px,1200px); } .hero { min-height:570px; padding:70px 0; } .section-heading,.about,.about-content { grid-template-columns:1fr; gap:18px; } .project-grid { grid-template-columns:1fr; } .project { min-height:410px; } .project-art { height:210px; } .about { padding:80px 0; } .photo-collage { max-width:350px; width:100%; height:300px; margin-top:32px; } .footer-email { margin-bottom:65px; } .footer-bottom { align-items:flex-start; flex-direction:column; gap:18px; } }
+@media (max-width:720px) { .site-header,main,footer { width:min(100% - 32px,1200px); } .hero { min-height:570px; padding:70px 0; } .section-heading,.about,.about-content,.origin-lab { grid-template-columns:1fr; gap:18px; } .project-grid { grid-template-columns:1fr; } .project { min-height:410px; } .project-art { height:210px; } .about { padding:80px 0; } .photo-collage { max-width:350px; width:100%; height:300px; margin-top:32px; } .origin-lab { padding:10px 0 85px; } .lab-stage { min-height:350px; } .footer-email { margin-bottom:65px; } .footer-bottom { align-items:flex-start; flex-direction:column; gap:18px; } }

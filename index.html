@@ -40,10 +40,9 @@
       <!-- Introductory hero -->
       <section class="hero" aria-labelledby="hero-title">
         <p class="eyebrow"><span class="status-dot"></span> Portfolio / 2026</p>
-        <h1 id="hero-title">Thinking in systems. Building with <em>care.</em></h1>
+        <h1 id="hero-title">There's nothing more interesting than the world <em>around us.</em></h1>
         <p class="hero-copy">
-          I’m Jasper Tang, a designer and developer who turns ideas into clear,
-          considered digital experiences.
+          There;s nothing more interesting than the world around us :)
         </p>
         <a class="text-link" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
       </section>
@@ -77,6 +76,39 @@
               <img class="photo-upload" src="assets/collage-02.jpg" alt="Portfolio collage image" />
             </figure>
           </div>
+        </div>
+      </section>
+
+      <!-- Origin lab: an interactive modern recreation of Jasper's early gravity simulation. -->
+      <section class="origin-lab" aria-labelledby="origin-title">
+        <div class="lab-stage">
+          <canvas
+            id="physics-canvas"
+            aria-label="Interactive gravity simulation. Click or drag to add bouncing balls."
+          ></canvas>
+          <div class="lab-hud" aria-hidden="true">
+            <span>GRAVITY / 9.8 m·s⁻²</span>
+            <span id="ball-count">OBJECTS / 00</span>
+          </div>
+          <div class="lab-prompt">CLICK + DRAG TO INTRODUCE A PARTICLE</div>
+          <button class="lab-reset" id="reset-simulation" type="button">RESET</button>
+        </div>
+        <div class="lab-story">
+          <p class="eyebrow">01.5 / Origin story</p>
+          <h2 id="origin-title">Before I knew the language for it, I was already modeling the world.</h2>
+          <p>
+            In eighth grade, I built a physics simulation for bouncing balls:
+            gravity, momentum, friction, energy loss. It was a small attempt to
+            understand why things move the way they do—and the first time I felt
+            the particular thrill of turning a question into a system I could
+            touch and experiment with.
+          </p>
+          <p>
+            That impulse is still here. Whether I’m walking to class, standing
+            on a sidewalk, or sitting in a park, I’m drawn to the complexity
+            hiding in plain sight—and to the possibility of building a model
+            that makes it a little more legible.
+          </p>
         </div>
       </section>
 
@@ -159,5 +191,6 @@
       window.addEventListener("resize", updateBackground);
       updateBackground();
     </script>
+    <script src="simulation.js"></script>
   </body>
 </html>
