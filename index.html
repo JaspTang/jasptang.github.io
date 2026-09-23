@@ -39,6 +39,8 @@
     <main id="top">
       <!-- Introductory hero -->
       <section class="hero" aria-labelledby="hero-title">
+        <!-- Add assets/hero-art.jpg to display a personal Canva collage here. -->
+        <img class="hero-art" src="assets/hero-art.jpg" alt="" />
         <p class="eyebrow"><span class="status-dot"></span> Portfolio / 2026</p>
         <h1 id="hero-title">There's nothing more interesting than the world <em>around us.</em></h1>
         <p class="hero-copy">
@@ -163,10 +165,10 @@
 
     <!-- Reveal uploaded photos only after they load; SVG fallbacks remain otherwise. -->
     <script>
-      document.querySelectorAll(".photo-upload").forEach((photo) => {
-        if (photo.complete && photo.naturalWidth > 0) photo.classList.add("is-ready");
-        photo.addEventListener("load", () => photo.classList.add("is-ready"));
-        photo.addEventListener("error", () => photo.remove());
+      document.querySelectorAll(".photo-upload, .hero-art").forEach((image) => {
+        if (image.complete && image.naturalWidth > 0) image.classList.add("is-ready");
+        image.addEventListener("load", () => image.classList.add("is-ready"));
+        image.addEventListener("error", () => image.remove());
       });
 
       // Interpolate the ambient page color as the projects section approaches.
