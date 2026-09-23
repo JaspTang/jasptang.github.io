@@ -1,0 +1,85 @@
+/* Design tokens: keep shared colors and values in one place. */
+:root {
+  --ink: #18201d;
+  --paper: #f5f2ea;
+  --muted: #6c7069;
+  --line: #d7d4ca;
+  --lime: #c8ec58;
+  --peach: #f5b091;
+}
+
+/* Global reset and base document styles. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+}
+a { color: inherit; text-decoration: none; }
+.site-header, main, footer { width: min(1200px, calc(100% - 48px)); margin: auto; }
+/* Header and navigation. */
+.site-header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+.wordmark { font: 700 28px/1 "Fraunces", serif; letter-spacing: -1.5px; }
+.wordmark span { color: #e56d43; }
+nav { display: flex; gap: 26px; font-size: 14px; }
+nav a:hover, .footer-bottom a:hover { text-decoration: underline; text-underline-offset: 4px; }
+/* Hero section. */
+.hero { min-height: 620px; display: flex; flex-direction: column; justify-content: center; padding: 80px 0 100px; }
+.eyebrow, .project-number, .project-type { margin: 0; color: var(--muted); font: 12px/1.2 "DM Mono", monospace; letter-spacing: .04em; text-transform: uppercase; }
+h1, h2, h3, p { margin-top: 0; }
+h1 { max-width: 870px; margin: 25px 0; font: 600 clamp(62px, 10vw, 132px)/.93 "Fraunces", serif; letter-spacing: -.075em; }
+h1 em { color: #e56d43; font-style: italic; }
+.hero-copy { max-width: 470px; margin: 0 0 28px; color: #454a45; font-size: 19px; line-height: 1.5; }
+.text-link { width: fit-content; border-bottom: 1px solid var(--ink); padding-bottom: 6px; font-weight: 700; }
+.text-link span { margin-left: 12px; }
+/* Work grid and reusable project-card layout. */
+.work { padding: 90px 0 120px; border-top: 1px solid var(--line); }
+.section-heading { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; margin-bottom: 48px; }
+h2 { margin-bottom: 0; font: 600 clamp(36px, 5vw, 61px)/1 "Fraunces", serif; letter-spacing: -.055em; }
+.project-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.project { min-height: 475px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+.project-art { height: 275px; position: relative; overflow: hidden; }
+.project-details { padding: 18px 20px 22px; }
+.project h3 { margin: 12px 0 8px; font: 600 30px/1 "Fraunces", serif; letter-spacing: -.04em; }
+.project-details > p:not(.project-number) { min-height: 48px; margin-bottom: 20px; color: #4d514c; font-size: 14px; line-height: 1.45; }
+.project--dark { background: #202a26; color: #f5f2ea; }
+.project--dark .project-number, .project--dark .project-type { color: #b9c0b5; }
+.project--dark .project-details > p:not(.project-number) { color: #d4d7d0; }
+.project--lime { background: var(--lime); }
+.project--peach { background: var(--peach); }
+/* Decorative CSS-only artwork for project-card placeholders. */
+.art-orbit i, .art-orbit b { position: absolute; display: block; border: 1px solid #c8ec58; border-radius: 50%; }
+.art-orbit i { width: 380px; height: 380px; left: -58px; top: -55px; }
+.art-orbit b { width: 220px; height: 220px; left: 35px; top: 25px; }
+.art-orbit::after { content: "✦"; position: absolute; top: 103px; left: 115px; color: var(--lime); font-size: 70px; }
+.art-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 27px; }
+.art-grid i { display: block; border-radius: 50%; background: #18201d; }
+.art-grid i:nth-child(2), .art-grid i:nth-child(3) { border-radius: 0; background: transparent; border: 12px solid #18201d; }
+.art-shapes i, .art-shapes b, .art-shapes em { position: absolute; display: block; background: #18201d; }
+.art-shapes i { width: 145px; height: 145px; border-radius: 50%; top: 38px; left: 46px; }
+.art-shapes b { width: 145px; height: 145px; top: 93px; right: 32px; transform: rotate(45deg); }
+.art-shapes em { width: 42px; height: 42px; border-radius: 50%; background: var(--paper); bottom: 36px; left: 66px; }
+/* About and contact sections. */
+.about { display: grid; grid-template-columns: 1fr 2fr; gap: 24px; padding: 105px 0 130px; border-top: 1px solid var(--line); }
+.about h2 { max-width: 680px; margin-bottom: 30px; }
+.about div > p { max-width: 570px; margin-bottom: 30px; font-size: 18px; line-height: 1.55; color: #454a45; }
+footer { padding: 70px 0 28px; border-top: 1px solid var(--line); }
+.footer-email { display: block; width: fit-content; margin: 22px 0 90px; font: 600 clamp(38px, 6.5vw, 86px)/.95 "Fraunces", serif; letter-spacing: -.06em; }
+.footer-email:hover { color: #e56d43; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; color: var(--muted); font: 12px "DM Mono", monospace; }
+.footer-bottom div { display: flex; gap: 24px; }
+/* Compact single-column layout for phones. */
+@media (max-width: 720px) {
+  .site-header, main, footer { width: min(100% - 32px, 1200px); }
+  .hero { min-height: 540px; padding: 70px 0; }
+  .section-heading, .about { grid-template-columns: 1fr; gap: 18px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .project { min-height: 410px; }
+  .project-art { height: 210px; }
+  .about { padding: 80px 0; }
+  .footer-email { margin-bottom: 65px; }
+  .footer-bottom { align-items: flex-start; flex-direction: column; gap: 18px; }
+}
