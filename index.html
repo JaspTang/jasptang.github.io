@@ -136,6 +136,27 @@
         photo.addEventListener("load", () => photo.classList.add("is-ready"));
         photo.addEventListener("error", () => photo.remove());
       });
+
+      // Interpolate the ambient page color as the projects section approaches.
+      const root = document.documentElement;
+      const projects = document.querySelector("#work");
+      const startColor = [222, 247, 239];
+      const endColor = [255, 255, 255];
+
+      function updateBackground() {
+        const startLine = window.innerHeight * 0.88;
+        const endLine = window.innerHeight * 0.22;
+        const projectTop = projects.getBoundingClientRect().top;
+        const progress = Math.min(1, Math.max(0, (startLine - projectTop) / (startLine - endLine)));
+        const color = startColor.map((channel, index) => Math.round(channel + (endColor[index] - channel) * progress));
+
+        root.style.setProperty("--surface-color", `rgb(${color.join(", ")})`);
+        root.style.setProperty("--accent-opacity", String(0.22 * (1 - progress)));
+      }
+
+      window.addEventListener("scroll", updateBackground, { passive: true });
+      window.addEventListener("resize", updateBackground);
+      updateBackground();
     </script>
   </body>
 </html>
