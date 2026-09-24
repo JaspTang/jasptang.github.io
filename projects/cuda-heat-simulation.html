@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jasper Tang's CUDA heat simulation project." />
+    <title>CUDA Heat Simulation — Jasper Tang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home">JASP<span>/</span>TANG</a>
+      <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
+    </header>
+    <main class="case-page">
+      <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
+      <section class="case-intro">
+        <p class="eyebrow">PROJECT / CUDA · GPU COMPUTE</p>
+        <h1>Heat, modeled on the GPU.</h1>
+        <p class="case-lead">I built a CUDA based heat simulation to learn how a GPU can model a changing physical world in parallel. That experiment turned my curiosity toward high performance computing and computer architecture.</p>
+      </section>
+      <figure class="heat-visual case-visual">
+        <img class="heat-gif" src="../assets/heat-simulation.gif" alt="Animation from Jasper Tang's CUDA heat simulation" />
+        <figcaption class="heat-gif-placeholder"><span class="heat-pulse"></span><span>CUDA / HEAT DIFFUSION</span><small>When ready, add the animation at assets/heat-simulation.gif.</small></figcaption>
+      </figure>
+      <section class="case-notes">
+        <div><p class="eyebrow">THE QUESTION</p><h2>How does the machine change the model?</h2></div>
+        <p>Following the heat through a material became a way to explore GPU programming and the relationship between a model and the hardware running it. I’m developing this page alongside the project details and demo.</p>
+      </section>
+    </main>
+    <script>
+      const heatGif = document.querySelector(".heat-gif");
+      if (heatGif.complete && heatGif.naturalWidth > 0) heatGif.classList.add("is-ready");
+      heatGif.addEventListener("load", () => heatGif.classList.add("is-ready"));
+      heatGif.addEventListener("error", () => heatGif.remove());
+    </script>
+  </body>
+</html>

@@ -8,7 +8,7 @@
   const gravity = 980;
   const restitution = 0.68;
   const friction = 0.92;
-  const palette = ["#40e1c0", "#51a8ff", "#a9f36a", "#f4d35e"];
+  const palette = ["#68f5d0", "#69aaff", "#e0ff63", "#ff8369"];
   let dimensions = { width: 0, height: 0, scale: 1 };
   let previousTime = performance.now();
   let pointerStart = null;
@@ -122,4 +122,167 @@
   resizeCanvas();
   resetSimulation();
   requestAnimationFrame(drawFrame);
+})();
+
+// Small gravitational pulls keep related projects clustered in the work field.
+(() => {
+  const field = document.querySelector(".bubble-field");
+  if (!field) return;
+
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const nodes = [...field.querySelectorAll("[data-bubble]")].map((element) => ({
+    element,
+    kind: element.dataset.kind,
+    x: 0,
+    y: 0,
+    homeX: 0,
+    homeY: 0,
+    velocityX: 0,
+    velocityY: 0,
+    radius: 0,
+  }));
+  let fieldSize = { width: 0, height: 0 };
+  let activeBubble = null;
+  let previousFrame = performance.now();
+  let mobileLayout = window.innerWidth <= 720;
+
+  function arrangeNodes(preservePositions = false) {
+    const bounds = field.getBoundingClientRect();
+    const nextMobileLayout = window.innerWidth <= 720;
+    const layoutChanged = mobileLayout !== nextMobileLayout;
+    mobileLayout = nextMobileLayout;
+    const scaleX = fieldSize.width ? bounds.width / fieldSize.width : 1;
+    const scaleY = fieldSize.height ? bounds.height / fieldSize.height : 1;
+    fieldSize = { width: bounds.width, height: bounds.height };
+
+    nodes.forEach((node, index) => {
+      const box = node.element.getBoundingClientRect();
+      node.radius = Math.max(box.width, box.height) / 2;
+      if (window.innerWidth <= 720) {
+        const mobileHomes = [
+          { x: 0.37, y: 0.24 },
+          { x: 0.64, y: 0.53 },
+          { x: 0.25, y: 0.82 },
+        ];
+        const home = mobileHomes[index] || { x: 0.75, y: 0.8 };
+        node.homeX = bounds.width * home.x;
+        node.homeY = bounds.height * home.y;
+      } else {
+        node.homeX = bounds.width * Number(node.element.dataset.x);
+        node.homeY = bounds.height * Number(node.element.dataset.y);
+      }
+
+      if (!preservePositions || layoutChanged) {
+        node.x = node.homeX;
+        node.y = node.homeY;
+      } else {
+        node.x *= scaleX;
+        node.y *= scaleY;
+      }
+      node.x = Math.max(node.radius + 8, Math.min(bounds.width - node.radius - 8, node.x));
+      node.y = Math.max(node.radius + 8, Math.min(bounds.height - node.radius - 8, node.y));
+      node.element.style.left = `${node.x}px`;
+      node.element.style.top = `${node.y}px`;
+    });
+  }
+
+  function updateBubbles(now) {
+    if (document.hidden) {
+      previousFrame = now;
+      requestAnimationFrame(updateBubbles);
+      return;
+    }
+    const elapsed = Math.min((now - previousFrame) / 16.67, 2);
+    previousFrame = now;
+    const accelerations = nodes.map(() => ({ x: 0, y: 0 }));
+
+    nodes.forEach((node, index) => {
+      const homePull = node.kind === "project" ? 0.001 : 0.00125;
+      accelerations[index].x += (node.homeX - node.x) * homePull;
+      accelerations[index].y += (node.homeY - node.y) * homePull;
+    });
+
+    for (let first = 0; first < nodes.length; first += 1) {
+      for (let second = first + 1; second < nodes.length; second += 1) {
+        const a = nodes[first];
+        const b = nodes[second];
+        let dx = b.x - a.x;
+        let dy = b.y - a.y;
+        let distance = Math.hypot(dx, dy) || 1;
+        const directionX = dx / distance;
+        const directionY = dy / distance;
+
+        if (a.kind === "project" && b.kind === "project") {
+          const pull = 0.00012;
+          accelerations[first].x += dx * pull;
+          accelerations[first].y += dy * pull;
+          accelerations[second].x -= dx * pull;
+          accelerations[second].y -= dy * pull;
+        } else {
+          const gentlePull = 0.000035;
+          if (a.kind === "interest" && b.kind === "project") {
+            accelerations[first].x += dx * gentlePull;
+            accelerations[first].y += dy * gentlePull;
+          } else if (a.kind === "project" && b.kind === "interest") {
+            accelerations[second].x -= dx * gentlePull;
+            accelerations[second].y -= dy * gentlePull;
+          }
+        }
+
+        const minimumDistance = a.radius + b.radius + 14;
+        if (distance < minimumDistance) {
+          const push = (minimumDistance - distance) * 0.003;
+          accelerations[first].x -= directionX * push;
+          accelerations[first].y -= directionY * push;
+          accelerations[second].x += directionX * push;
+          accelerations[second].y += directionY * push;
+        }
+      }
+    }
+
+    if (activeBubble) {
+      const activeIndex = nodes.indexOf(activeBubble);
+      nodes.forEach((node, index) => {
+        if (node === activeBubble) return;
+        const dx = node.x - activeBubble.x;
+        const dy = node.y - activeBubble.y;
+        const distance = Math.hypot(dx, dy) || 1;
+        const influence = activeBubble.radius + node.radius + (node.kind === "project" ? 90 : 130);
+        if (distance >= influence) return;
+        const nudge = (influence - distance) * 0.0022;
+        accelerations[index].x += (dx / distance) * nudge;
+        accelerations[index].y += (dy / distance) * nudge;
+        accelerations[activeIndex].x -= (dx / distance) * nudge * 0.14;
+        accelerations[activeIndex].y -= (dy / distance) * nudge * 0.14;
+      });
+    }
+
+    nodes.forEach((node, index) => {
+      node.velocityX = (node.velocityX + accelerations[index].x * elapsed) * Math.pow(0.94, elapsed);
+      node.velocityY = (node.velocityY + accelerations[index].y * elapsed) * Math.pow(0.94, elapsed);
+      node.x += node.velocityX * elapsed;
+      node.y += node.velocityY * elapsed;
+      node.x = Math.max(node.radius + 8, Math.min(fieldSize.width - node.radius - 8, node.x));
+      node.y = Math.max(node.radius + 8, Math.min(fieldSize.height - node.radius - 8, node.y));
+      node.element.style.left = `${node.x}px`;
+      node.element.style.top = `${node.y}px`;
+    });
+
+    requestAnimationFrame(updateBubbles);
+  }
+
+  nodes.forEach((node) => {
+    node.element.addEventListener("pointerenter", () => {
+      activeBubble = node;
+    });
+    node.element.addEventListener("pointerleave", () => {
+      if (activeBubble === node) activeBubble = null;
+    });
+    node.element.addEventListener("focus", () => { activeBubble = node; });
+    node.element.addEventListener("blur", () => { if (activeBubble === node) activeBubble = null; });
+  });
+
+  arrangeNodes();
+  if (!reducedMotion) requestAnimationFrame(updateBubbles);
+  window.addEventListener("resize", () => arrangeNodes(true));
 })();

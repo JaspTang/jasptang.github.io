@@ -18,12 +18,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Subtle, fixed color accents support the lighter opening sections. -->
-    <div class="atmosphere" aria-hidden="true">
-      <i class="accent accent--teal"></i>
-      <i class="accent accent--blue"></i>
-      <i class="accent accent--lime"></i>
-    </div>
+    <!-- Fixed graph-paper layer beneath the page content. -->
+    <div class="atmosphere" aria-hidden="true"></div>
 
     <!-- Persistent site navigation -->
     <header class="site-header">
@@ -44,40 +40,35 @@
         <p class="eyebrow"><span class="status-dot"></span> Portfolio / 2026</p>
         <h1 id="hero-title">There's nothing more interesting than the world <em>around us.</em></h1>
         <p class="hero-copy">
-          There;s nothing more interesting than the world around us :)
+          I use the tools I learn to understand it a little better.
         </p>
-        <a class="text-link" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
+        <div class="hero-actions">
+          <a class="text-link" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#work">See my projects <span aria-hidden="true">↘</span></a>
+        </div>
       </section>
 
-      <!-- Personal introduction and photo collage -->
+      <!-- Personal introduction flanked by two replaceable photos. -->
       <section class="about" id="about" aria-labelledby="about-title">
-        <p class="eyebrow">01 / About me</p>
         <div class="about-content">
+          <figure class="about-photo about-photo--left">
+            <img src="assets/collage-01-placeholder.svg" alt="" aria-hidden="true" />
+            <img class="photo-upload" src="assets/about-left.jpg" alt="Jasper exploring an idea or project" />
+          </figure>
           <div class="about-copy">
-            <h2 id="about-title">Curious by default. Intentional in the details.</h2>
+            <p class="eyebrow">01 / About me</p>
+            <h2 id="about-title">The world is full of so many things waiting to be explored.</h2>
             <p>
-              I like the work that happens between a first rough thought and a
-              finished, useful thing. My practice brings together strategy, visual
-              design, and code to make products people enjoy returning to.
+              I know it might be trite, but my curiosity has always led me to dive down some of the deepest rabbit holes.
+              The neverending nature of curiosity is so exciting, and it's what motivates me to continually build.
             </p>
             <a class="text-link" href="mailto:hello@example.com">Let’s work together <span aria-hidden="true">↗</span></a>
           </div>
 
-          <!-- JPG uploads cover these SVG fallbacks automatically when available. -->
-          <div class="photo-collage" aria-label="Photo collage">
-            <figure class="photo photo--portrait">
-              <img src="assets/profile-placeholder.svg" alt="Placeholder for Jasper Tang's profile photograph" />
-              <img class="photo-upload" src="assets/profile.jpg" alt="Portrait of Jasper Tang" />
-            </figure>
-            <figure class="photo photo--one">
-              <img src="assets/collage-01-placeholder.svg" alt="Placeholder for a portfolio collage image" />
-              <img class="photo-upload" src="assets/collage-01.jpg" alt="Portfolio collage image" />
-            </figure>
-            <figure class="photo photo--two">
-              <img src="assets/collage-02-placeholder.svg" alt="Placeholder for a portfolio collage image" />
-              <img class="photo-upload" src="assets/collage-02.jpg" alt="Portfolio collage image" />
-            </figure>
-          </div>
+          <figure class="about-photo about-photo--right">
+            <img src="assets/collage-02-placeholder.svg" alt="" aria-hidden="true" />
+            <img class="photo-upload" src="assets/about-right.jpg" alt="Jasper working with technology" />
+          </figure>
         </div>
       </section>
 
@@ -96,76 +87,110 @@
           <button class="lab-reset" id="reset-simulation" type="button">RESET</button>
         </div>
         <div class="lab-story">
-          <p class="eyebrow">01.5 / Origin story</p>
+          <p class="eyebrow">02 / First model</p>
           <h2 id="origin-title">Before I knew the language for it, I was already modeling the world.</h2>
           <p>
             In eighth grade, I built a physics simulation for bouncing balls:
             gravity, momentum, friction, energy loss. It was a small attempt to
-            understand why things move the way they do—and the first time I felt
-            the particular thrill of turning a question into a system I could
-            touch and experiment with.
+            understand why things move the way they do—I had just learned F=ma and 
+            it truly amazed me I was able to simulate the <strong>laws of nature</strong>
+            in <strong>100 lines of code</strong>. 
           </p>
           <p>
-            That impulse is still here. Whether I’m walking to class, standing
-            on a sidewalk, or sitting in a park, I’m drawn to the complexity
-            hiding in plain sight—and to the possibility of building a model
-            that makes it a little more legible.
+            It was the first time I felt the particular thrill of turning a question 
+            into a system I could touch and experiment with. Whether I’m walking to class, standing
+            on a sidewalk, or sitting in a park, <strong>I’m drawn to the complexity
+            hiding in plain sight—and to the possibility of making that complexity
+            a little more legible.</strong>
           </p>
+        </div>
+      </section>
+
+      <!-- A CUDA heat model moves the story from observing physics to exploring the hardware. -->
+      <section class="heat-story" id="heat" aria-labelledby="heat-title">
+        <div class="heat-story-copy">
+          <p class="eyebrow">03 / A different scale</p>
+          <h2 id="heat-title">Then I wanted to understand the machine doing the thinking.</h2>
+          <p>
+            Diving down that rabbit hole, when I learned the beautifully simple differential 
+            equations behind heat diffusion, I used parallel computing to simulate it. 
+            I built a heat simulation with CUDA to learn how GPUs model a changing
+            world in parallel. That project opened another question: how does the
+            hardware itself make all of this possible?
+          </p>
+          <p>
+            Now I want to go deeper into high performance computing and computer
+            architecture—how we teach silicon to think, and how much further we
+            can take an idea when we understand the machine beneath it.
+          </p>
+        </div>
+        <figure class="heat-visual">
+          <img class="heat-gif" src="assets/heat-simulation.gif" alt="CUDA heat simulation visualizing heat spreading through a material" />
+          <figcaption class="heat-gif-placeholder"><span class="heat-pulse"></span><span>CUDA / HEAT DIFFUSION</span><small>The animated preview could not be loaded.</small></figcaption>
+        </figure>
+      </section>
+
+      <!-- A present-day chapter returns to the same flanked, centered format as About. -->
+      <section class="about now-section" id="now" aria-labelledby="now-title">
+        <div class="about-content">
+          <div class="about-copy">
+            <p class="eyebrow">04 / Right now</p>
+            <h2 id="now-title">Now, what am I up to?</h2>
+            <p>
+              It may seem like we know everything, but I love that we don't. Computing is still evolving, and every new architecture, accelerator, and manufacturing breakthrough opens another set of questions. I started with something as simple as wondering why my computer crashed while playing Minecraft. Since then, I have kept asking what lies underneath each layer of computation. Now, I want to really understand how we can take the laws of physics, turn them into transistors, turn those transistors into logic, and ultimately turn a piece of silicon into a machine capable of computation - a machine only made possible through generations of human curiosity. 
+            </p>
+          </div>
         </div>
       </section>
 
       <!-- Project work follows the personal introduction in focused dark mode. -->
       <section class="work" id="work" aria-labelledby="work-title">
         <div class="section-heading">
-          <p class="eyebrow">02 / Selected work</p>
+          <p class="eyebrow">05 / Selected work</p>
           <h2 id="work-title">A few things I’ve been making.</h2>
         </div>
 
-        <div class="project-grid">
-          <article class="project project--dark">
-            <div class="project-art art-orbit" aria-hidden="true"><i></i><b></b></div>
-            <div class="project-details">
-              <p class="project-number">01</p>
-              <h3>Project One</h3>
-              <p>A short, vivid description of the problem, approach, and result.</p>
-              <span class="project-type">Case study coming soon</span>
-            </div>
-          </article>
-          <article class="project project--lime">
-            <div class="project-art art-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-            <div class="project-details">
-              <p class="project-number">02</p>
-              <h3>Project Two</h3>
-              <p>A short, vivid description of the problem, approach, and result.</p>
-              <span class="project-type">Case study coming soon</span>
-            </div>
-          </article>
-          <article class="project project--peach">
-            <div class="project-art art-shapes" aria-hidden="true"><i></i><b></b><em></em></div>
-            <div class="project-details">
-              <p class="project-number">03</p>
-              <h3>Project Three</h3>
-              <p>A short, vivid description of the problem, approach, and result.</p>
-              <span class="project-type">Case study coming soon</span>
-            </div>
-          </article>
+        <div class="bubble-field" role="group" aria-label="Projects and interests">
+          <a class="bubble bubble--project bubble--cuda" href="projects/cuda-heat-simulation.html" data-bubble data-kind="project" data-x=".39" data-y=".49" aria-label="Open the CUDA heat simulation project">
+            <img class="bubble-image" src="assets/bubble-cuda.jpg" alt="" aria-hidden="true" />
+            <span class="bubble-kicker">GPU / CUDA</span>
+            <span class="bubble-title">Heat<br />Simulation</span>
+            <span class="bubble-hint">Explore project <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="bubble bubble--project bubble--physics" href="projects/physics-simulation.html" data-bubble data-kind="project" data-x=".65" data-y=".53" aria-label="Open the physics simulation project">
+            <img class="bubble-image" src="assets/bubble-physics.jpg" alt="" aria-hidden="true" />
+            <span class="bubble-kicker">ORIGIN EXPERIMENT</span>
+            <span class="bubble-title">Physics<br />Sandbox</span>
+            <span class="bubble-hint">Explore project <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="bubble bubble--interest bubble--photo" href="projects/photography.html" data-bubble data-kind="interest" data-x=".86" data-y=".25" aria-label="Open photography interests">
+            <img class="bubble-image" src="assets/bubble-photography.jpg" alt="" aria-hidden="true" />
+            <span class="bubble-kicker">HOBBY</span>
+            <span class="bubble-title">Photo-<br />graphy</span>
+            <span class="bubble-hint" aria-hidden="true">↗</span>
+          </a>
+          <p class="bubble-caption" aria-hidden="true">Little worlds, connected by curiosity.</p>
         </div>
       </section>
     </main>
 
     <!-- Contact details and external links -->
     <footer id="contact">
-      <p class="eyebrow">03 / Get in touch</p>
-      <a class="footer-email" href="mailto:hello@example.com">hello@example.com</a>
+      <p class="eyebrow">06 / Get in touch</p>
+      <nav class="footer-contact-links" aria-label="Contact and social links">
+        <a href="mailto:jtang.az@gmail.com"><span>Email</span><small>jtang.az@gmail.com</small></a>
+        <a href="https://www.linkedin.com/in/jasper-lee-tang" target="_blank" rel="noreferrer"><span>LinkedIn</span><small>linkedin.com/in/jasper-lee-tang</small></a>
+        <a href="https://github.com/jasptang" target="_blank" rel="noreferrer"><span>GitHub</span><small>github.com/jasptang</small></a>
+      </nav>
       <div class="footer-bottom">
         <p>© 2026 Jasper Tang</p>
-        <div><a href="https://github.com/jasptang">GitHub</a><a href="#top">Back to top ↑</a></div>
+        <div><a href="#top">Back to top ↑</a></div>
       </div>
     </footer>
 
     <!-- Reveal uploaded photos only after they load; SVG fallbacks remain otherwise. -->
     <script>
-      document.querySelectorAll(".photo-upload, .hero-art").forEach((image) => {
+      document.querySelectorAll(".photo-upload, .hero-art, .heat-gif, .bubble-image").forEach((image) => {
         if (image.complete && image.naturalWidth > 0) image.classList.add("is-ready");
         image.addEventListener("load", () => image.classList.add("is-ready"));
         image.addEventListener("error", () => image.remove());
@@ -174,8 +199,8 @@
       // Interpolate the ambient page color as the projects section approaches.
       const root = document.documentElement;
       const projects = document.querySelector("#work");
-      const startColor = [6, 29, 39];
-      const endColor = [3, 7, 8];
+      const startColor = [255, 255, 255];
+      const endColor = [248, 249, 252];
 
       function updateBackground() {
         // A long range makes the teal-to-black change gradual and noticeable.
@@ -186,12 +211,12 @@
         const color = startColor.map((channel, index) => Math.round(channel + (endColor[index] - channel) * progress));
 
         root.style.setProperty("--surface-color", `rgb(${color.join(", ")})`);
-        root.style.setProperty("--accent-opacity", String(0.28 * (1 - progress)));
       }
 
       window.addEventListener("scroll", updateBackground, { passive: true });
       window.addEventListener("resize", updateBackground);
       updateBackground();
+
     </script>
     <script src="simulation.js"></script>
   </body>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jasper Tang's early interactive physics simulation." />
+    <title>Physics Sandbox — Jasper Tang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home">JASP<span>/</span>TANG</a>
+      <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
+    </header>
+    <main class="case-page">
+      <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
+      <section class="case-intro">
+        <p class="eyebrow">PROJECT / ORIGIN EXPERIMENT</p>
+        <h1>A small world, with rules you can touch.</h1>
+        <p class="case-lead">In eighth grade, I built a bouncing-ball physics simulation to see gravity, momentum, friction, and energy loss play out together. It was an early way to turn a question about the world into a model I could experiment with.</p>
+      </section>
+      <div class="lab-stage case-physics-stage">
+        <canvas id="physics-canvas" aria-label="Interactive gravity simulation. Click or drag to add bouncing balls."></canvas>
+        <div class="lab-hud" aria-hidden="true"><span>GRAVITY / 9.8 m·s⁻²</span><span id="ball-count">OBJECTS / 00</span></div>
+        <div class="lab-prompt">CLICK + DRAG TO INTRODUCE A PARTICLE</div>
+        <button class="lab-reset" id="reset-simulation" type="button">RESET</button>
+      </div>
+      <section class="case-notes">
+        <div><p class="eyebrow">WHAT STUCK</p><h2>Make the invisible visible.</h2></div>
+        <p>Changing a rule and watching the result helped me understand the system in a way a description alone could not. That impulse to build a model and learn from it still guides the projects I choose.</p>
+      </section>
+    </main>
+    <script src="../simulation.js"></script>
+  </body>
+</html>
