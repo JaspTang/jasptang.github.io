@@ -7,13 +7,13 @@
     <title>CUDA Heat Simulation — Jasper Tang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home">JASP<span>/</span>TANG</a>
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
       <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
     </header>
     <main class="case-page">
@@ -21,15 +21,26 @@
       <section class="case-intro">
         <p class="eyebrow">PROJECT / CUDA · GPU COMPUTE</p>
         <h1>Heat, modeled on the GPU.</h1>
-        <p class="case-lead">I built a CUDA based heat simulation to learn how a GPU can model a changing physical world in parallel. That experiment turned my curiosity toward high performance computing and computer architecture.</p>
+        <p class="case-lead">I built a CUDA heat simulation to learn how a GPU can model a changing physical world in parallel. That experiment turned my curiosity toward high performance computing and computer architecture.</p>
       </section>
-      <figure class="heat-visual case-visual">
-        <img class="heat-gif" src="../assets/heat-simulation.gif" alt="Animation from Jasper Tang's CUDA heat simulation" />
-        <figcaption class="heat-gif-placeholder"><span class="heat-pulse"></span><span>CUDA / HEAT DIFFUSION</span><small>When ready, add the animation at assets/heat-simulation.gif.</small></figcaption>
-      </figure>
-      <section class="case-notes">
-        <div><p class="eyebrow">THE QUESTION</p><h2>How does the machine change the model?</h2></div>
-        <p>Following the heat through a material became a way to explore GPU programming and the relationship between a model and the hardware running it. I’m developing this page alongside the project details and demo.</p>
+      <section class="case-section" aria-labelledby="inspiration-title">
+        <div><h2 id="inspiration-title">Inspiration</h2></div>
+        <div class="case-section-copy"><p>The simple differential equations behind heat diffusion offered a way to connect a physical process I could observe with the computation underneath it.</p><p>I wanted to see how a familiar model changes when thousands of calculations can run in parallel.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="process-title">
+        <div><h2 id="process-title">Process</h2></div>
+        <div class="case-section-copy"><p>I implemented a three dimensional heat model with CUDA and explored how the GPU updates many points in the material at once. The project gave me a hands-on way to study parallel computing, memory, and the hardware behind the simulation.</p><p>The animation below shows a center slice of the simulated volume as heat spreads over time.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="results-title">
+        <div><h2 id="results-title">Results</h2></div>
+        <div class="case-section-copy"><p>The simulation turns the numerical updates into a visual result, making the diffusion pattern easier to inspect and compare over time.</p><p>I’m continuing to build out the project notes and implementation details.</p></div>
+      </section>
+      <section class="case-result" aria-label="Simulation result and project links">
+        <figure class="heat-visual case-visual">
+          <img class="heat-gif" src="../assets/heat-simulation.gif" alt="Animation showing heat spreading through a simulated material" />
+          <figcaption class="heat-gif-placeholder"><span class="heat-pulse"></span><span>CUDA / HEAT DIFFUSION</span><small>Add or replace assets/heat-simulation.gif to update this demo.</small></figcaption>
+        </figure>
+        <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
     <script>

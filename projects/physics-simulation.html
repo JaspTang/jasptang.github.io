@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jasper Tang's early interactive physics simulation." />
+    <meta name="description" content="Jasper Tang's interactive physics sandbox." />
     <title>Physics Sandbox — Jasper Tang</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home">JASP<span>/</span>TANG</a>
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
       <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
     </header>
     <main class="case-page">
@@ -23,15 +23,26 @@
         <h1>A small world, with rules you can touch.</h1>
         <p class="case-lead">In eighth grade, I built a bouncing-ball physics simulation to see gravity, momentum, friction, and energy loss play out together. It was an early way to turn a question about the world into a model I could experiment with.</p>
       </section>
-      <div class="lab-stage case-physics-stage">
-        <canvas id="physics-canvas" aria-label="Interactive gravity simulation. Click or drag to add bouncing balls."></canvas>
-        <div class="lab-hud" aria-hidden="true"><span>GRAVITY / 9.8 m·s⁻²</span><span id="ball-count">OBJECTS / 00</span></div>
-        <div class="lab-prompt">CLICK + DRAG TO INTRODUCE A PARTICLE</div>
-        <button class="lab-reset" id="reset-simulation" type="button">RESET</button>
-      </div>
-      <section class="case-notes">
-        <div><p class="eyebrow">WHAT STUCK</p><h2>Make the invisible visible.</h2></div>
-        <p>Changing a rule and watching the result helped me understand the system in a way a description alone could not. That impulse to build a model and learn from it still guides the projects I choose.</p>
+      <section class="case-section" aria-labelledby="inspiration-title">
+        <div><h2 id="inspiration-title">Inspiration</h2></div>
+        <div class="case-section-copy"><p>After learning F=ma, I was amazed that a few rules could describe the motion I saw around me. I wanted to make those rules visible and find out what happened when objects bounced, slowed down, and collided.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="process-title">
+        <div><h2 id="process-title">Process</h2></div>
+        <div class="case-section-copy"><p>The model updates each ball's position and velocity over time, applies gravity, and responds to the edges with bouncing and energy loss. Drag on the stage to launch a new ball and watch the rules interact.</p><p>It was a small program, but it taught me how a system can emerge from simple updates repeated over time.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="results-title">
+        <div><h2 id="results-title">Results</h2></div>
+        <div class="case-section-copy"><p>Changing a rule and watching the result helped me understand the system in a way a description alone could not. That impulse to build a model and learn from it still guides the projects I choose.</p></div>
+      </section>
+      <section class="case-result" aria-label="Interactive simulation and project links">
+        <div class="lab-stage case-physics-stage">
+          <canvas id="physics-canvas" aria-label="Interactive gravity simulation. Click or drag to add bouncing balls."></canvas>
+          <div class="lab-hud" aria-hidden="true"><span>GRAVITY / 9.8 m·s⁻²</span><span id="ball-count">OBJECTS / 00</span></div>
+          <div class="lab-prompt">CLICK + DRAG TO INTRODUCE A PARTICLE</div>
+          <button class="lab-reset" id="reset-simulation" type="button">RESET</button>
+        </div>
+        <div class="case-result-copy"><h3>Try the model</h3><p>Click and drag in the simulation to introduce a particle with a new direction and speed.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
     <script src="../simulation.js"></script>

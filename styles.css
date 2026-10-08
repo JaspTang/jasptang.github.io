@@ -4,7 +4,7 @@
 /* Global reset and base document styles. */
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
-body { margin:0; overflow-x:hidden; color:var(--ink); background:var(--surface-color); font:16px "Space Grotesk",sans-serif; }
+body { margin:0; overflow-x:hidden; color:var(--ink); background:var(--surface-color); font:16px "Nunito",sans-serif; }
 a { color:inherit; text-decoration:none; }
 
 /* Fixed atmospheric layers create a fluid, natural-technology backdrop. */
@@ -14,27 +14,27 @@ a { color:inherit; text-decoration:none; }
 /* Shared page width and navigation. */
 .site-header, main, footer { width:min(1200px,calc(100% - 48px)); margin:auto; }
 .site-header { display:flex; align-items:center; justify-content:space-between; padding:28px 0; border-bottom:1px solid var(--line); }
-.wordmark { font:700 15px/1 "DM Mono",monospace; letter-spacing:-.5px; }
-.wordmark span { color:var(--teal); }
-nav { display:flex; gap:26px; color:var(--muted); font:12px "DM Mono",monospace; }
+.wordmark { display:block; width:154px; height:40px; overflow:hidden; }
+.wordmark img { display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
+nav { display:flex; gap:26px; color:var(--muted); font:700 13px "Nunito",sans-serif; }
 nav a:hover, .footer-bottom a:hover { color:var(--teal); }
 
-/* Hero section: Fraunces remains the distinct display voice. */
+/* A rounder typeface softens the portfolio while keeping the technical details crisp. */
 .hero { position:relative; isolation:isolate; min-height:680px; display:flex; flex-direction:column; justify-content:center; padding:85px 0 115px; }
 .hero::after { content:""; position:absolute; z-index:0; top:0; bottom:0; left:50%; width:100vw; transform:translateX(-50%); pointer-events:none; background:none; }
 .hero > :not(.hero-art) { position:relative; z-index:1; }
 .hero-art { position:absolute; z-index:0; top:0; bottom:0; left:50%; width:100vw; height:100%; transform:translateX(-50%); object-fit:cover; opacity:0; transition:opacity .8s ease; }
 .hero-art.is-ready { opacity:1; }
-.eyebrow,.project-number,.project-type { margin:0; color:var(--muted); font:12px/1.2 "DM Mono",monospace; letter-spacing:.04em; text-transform:uppercase; }
+.eyebrow,.project-number,.project-type { margin:0; color:var(--muted); font:800 12px/1.2 "Nunito",sans-serif; letter-spacing:.08em; text-transform:uppercase; }
 .status-dot { display:inline-block; width:7px; height:7px; margin:0 7px 1px 0; border-radius:50%; background:var(--lime); box-shadow:0 0 12px var(--lime); }
 h1,h2,h3,p { margin-top:0; }
-h1 { max-width:760px; margin:18px 0; font:600 clamp(42px,6vw,78px)/.96 "Fraunces",serif; letter-spacing:-.065em; }
+h1 { max-width:760px; margin:18px 0; font:900 clamp(42px,6vw,78px)/1 "Nunito",sans-serif; letter-spacing:-.045em; }
 h1 em { color:var(--teal); font-style:italic; text-shadow:0 0 35px rgba(64,225,192,.28); }
 .hero h1,.hero h1 em,.hero > .eyebrow,.hero-copy { color:#fff; }
 .hero h1 em { text-shadow:0 2px 18px rgba(0,0,0,.22); }
 .hero-copy { max-width:640px; margin:0 0 30px; color:var(--muted); font-size:16px; line-height:1.5; }
 .hero .hero-copy { color:#fff; }
-.text-link { width:fit-content; border-bottom:1px solid var(--teal); padding-bottom:7px; color:var(--teal); font:500 13px "DM Mono",monospace; }
+.text-link { width:fit-content; border-bottom:1px solid var(--teal); padding-bottom:7px; color:var(--teal); font:700 14px "Nunito",sans-serif; }
 .text-link span { display:inline-block; margin-left:12px; transition:transform .2s ease; }
 .hero-actions { display:flex; align-items:flex-start; flex-direction:column; gap:15px; }
 .hero-actions .text-link { color:#fff; border-color:rgba(255,255,255,.82); transition:color .2s ease,border-color .2s ease,transform .2s ease; }
@@ -47,34 +47,34 @@ h1 em { color:var(--teal); font-style:italic; text-shadow:0 0 35px rgba(64,225,1
 .work { position:relative; z-index:0; padding:100px 0 120px; border-top:1px solid var(--line); }
 .section-heading,.about { display:grid; grid-template-columns:1fr 2fr; gap:24px; }
 .section-heading { margin-bottom:48px; }
-h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif; letter-spacing:-.07em; }
-/* Playful project spheres keep related work close and smaller interests in orbit. */
-.bubble-field { position:relative; height:650px; margin:12px 0 20px; isolation:isolate; }
-.bubble-field::before { position:absolute; inset:4% 3%; content:""; pointer-events:none; border:1px dashed rgba(42,48,72,.2); border-radius:46% 54% 48% 52% / 53% 47% 53% 47%; }
-.bubble { --bubble-scale:1; position:absolute; top:0; left:0; display:flex; align-items:center; justify-content:center; flex-direction:column; width:var(--bubble-size); height:var(--bubble-size); padding:22px; overflow:hidden; transform:translate(-50%,-50%) scale(var(--bubble-scale)); border:2px solid rgba(255,255,255,.92); border-radius:50%; color:#fff; text-align:center; text-decoration:none; box-shadow:0 18px 34px rgba(33,43,78,.18),inset 0 0 0 1px rgba(30,36,58,.1); will-change:left,top; transition:box-shadow .25s ease,transform .25s ease; }
-.bubble-image { position:absolute; z-index:0; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .3s ease; }
-.bubble-image.is-ready { opacity:.68; }
-.bubble::before { position:absolute; z-index:3; inset:10px; content:""; pointer-events:none; border:1px solid rgba(255,255,255,.5); border-radius:50%; }
-.bubble::after { position:absolute; z-index:1; inset:0; content:""; pointer-events:none; background:linear-gradient(145deg,rgba(22,28,57,.05),rgba(22,28,57,.58)); }
-.bubble--interest::after { background:linear-gradient(145deg,rgba(255,255,255,.1),rgba(255,255,255,.34)); }
-.bubble:hover,.bubble:focus-visible { --bubble-scale:1.08; z-index:2; box-shadow:0 22px 44px rgba(33,43,78,.28),0 0 0 5px rgba(56,107,255,.12),inset 0 0 0 1px rgba(30,36,58,.1); }
-.bubble:focus-visible { outline:3px solid var(--ink); outline-offset:5px; }
-.bubble--project { --bubble-size:clamp(230px,25vw,310px); }
-.bubble--cuda { background:radial-gradient(circle at 32% 24%,#ffb078,#ff695e 48%,#e43870); }
-.bubble--physics { --bubble-size:clamp(215px,22vw,280px); background:radial-gradient(circle at 35% 24%,#66b8ff,#4772ed 49%,#5841bc); }
-.bubble--interest { --bubble-size:142px; color:#263044; }
-.bubble--photo { background:radial-gradient(circle at 35% 25%,#efff9b,#c1e94c 58%,#94c726); }
-.bubble-kicker,.bubble-hint,.bubble-title { position:relative; z-index:2; }
-.bubble-kicker,.bubble-hint { font:10px "DM Mono",monospace; letter-spacing:.09em; text-transform:uppercase; }
-.bubble-kicker { margin-bottom:12px; opacity:.86; }
-.bubble-title { font:600 clamp(25px,3vw,38px)/.98 "Fraunces",serif; letter-spacing:-.045em; }
-.bubble--interest .bubble-title { font-size:21px; }
-.bubble-hint { margin-top:17px; opacity:.88; }
-.bubble--interest .bubble-hint { margin-top:8px; }
-.bubble-caption { position:absolute; right:3%; bottom:3%; margin:0; color:var(--muted); font:11px "DM Mono",monospace; letter-spacing:.04em; }
+h2 { margin-bottom:0; font:800 clamp(36px,5vw,61px)/1.06 "Nunito",sans-serif; letter-spacing:-.045em; }
+
+/* One roomy, image-forward card per project keeps the portfolio easy to scan. */
+.project-list { display:grid; gap:18px; width:100%; margin:16px 0 20px; }
+.project-card { --project-accent:#267d68; --preview-start:#e0f4ec; --preview-end:#c2e7da; display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); align-items:stretch; min-height:230px; overflow:hidden; border:1px solid rgba(42,48,72,.13); border-radius:24px; color:var(--ink); background:rgba(255,255,255,.86); box-shadow:0 12px 28px rgba(33,43,78,.07); text-decoration:none; transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+a.project-card:hover { transform:translateY(-3px); border-color:color-mix(in srgb,var(--project-accent),white 55%); box-shadow:0 18px 34px rgba(33,43,78,.12); }
+.project-card:focus-visible { outline:3px solid var(--project-accent); outline-offset:4px; }
+.project-card-copy { display:flex; align-items:flex-start; justify-content:center; flex-direction:column; padding:clamp(22px,4vw,42px); }
+.project-card-status { margin-bottom:12px; border-radius:999px; padding:5px 10px; color:#fff; background:var(--project-accent); font:800 11px/1 "Nunito",sans-serif; letter-spacing:.1em; }
+.project-card-title { max-width:14ch; margin:0; font:800 clamp(24px,3.1vw,36px)/1.12 "Nunito",sans-serif; letter-spacing:-.035em; }
+.project-card-year { margin:9px 0 0; color:var(--muted); font:700 14px/1.3 "Nunito",sans-serif; }
+.project-card-preview { position:relative; isolation:isolate; min-height:230px; margin:0; overflow:hidden; background:linear-gradient(135deg,var(--preview-start),var(--preview-end)); }
+.project-card-preview::before { position:absolute; z-index:0; inset:0; content:""; background:radial-gradient(ellipse at 78% 22%,rgba(255,255,255,.75),transparent 42%),radial-gradient(ellipse at 15% 88%,rgba(255,255,255,.28),transparent 54%); }
+.project-card-image { position:absolute; z-index:1; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .35s ease,transform .45s ease; }
+.project-card-image.is-ready { opacity:1; }
+a.project-card:hover .project-card-image.is-ready { transform:scale(1.025); }
+.project-card-image.is-ready + .project-card-placeholder { opacity:0; }
+.project-card-placeholder { position:absolute; z-index:2; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px; padding:18px; color:var(--project-accent); text-align:center; transition:opacity .25s ease; }
+.project-card-placeholder span { font:800 13px "Nunito",sans-serif; letter-spacing:.06em; text-transform:uppercase; }
+.project-card-placeholder small { color:var(--muted); font:12px "Nunito",sans-serif; overflow-wrap:anywhere; }
+.project-card--analog { --project-accent:#8a5a9f; --preview-start:#f2e8f6; --preview-end:#ded0eb; }
+.project-card--heat { --project-accent:#ca654c; --preview-start:#fff0dc; --preview-end:#f8d1b0; }
+.project-card--synth { --project-accent:#a44fa0; --preview-start:#f7e9f6; --preview-end:#e7c9ed; }
+.project-card--neutrino { --project-accent:#337c9d; --preview-start:#e4f4f4; --preview-end:#c4e0e9; }
+.project-card--physics { --project-accent:#536cc0; --preview-start:#eaf0ff; --preview-end:#d2dcf7; }
 
 /* About and contact sections. */
-.about { display:block; padding:105px 0 130px; border-top:1px solid var(--line); }
+.about { display:block; padding:65px 0 70px; border-top:1px solid var(--line); }
 .about-content { position:relative; display:grid; grid-template-columns:minmax(145px,.62fr) minmax(0,2fr) minmax(145px,.62fr); align-items:center; gap:clamp(24px,4vw,58px); }
 .now-section .about-content { display:block; }
 .about-copy { max-width:900px; margin:0 auto; text-align:center; }
@@ -82,15 +82,14 @@ h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif
 .about-copy > p:not(.eyebrow) { max-width:700px; margin:0 auto 30px; color:var(--muted); font-size:18px; line-height:1.55; }
 .about-copy .text-link { margin-inline:auto; }
 /* Photos flank the intro; JPGs replace the colorful graph-paper placeholders when added. */
-.about-photo { position:relative; width:100%; height:clamp(170px,20vw,260px); margin:0; overflow:hidden; border:1px solid rgba(42,48,72,.2); background:#f2f4fa; box-shadow:0 14px 32px rgba(27,32,53,.1); }
-.about-photo--left { border-radius:48% 52% 44% 56% / 42% 44% 56% 58%; transform:rotate(-3deg); }
-.about-photo--right { border-radius:55% 45% 58% 42% / 48% 57% 43% 52%; transform:rotate(3deg); }
+.about-photo { position:relative; width:100%; height:clamp(170px,20vw,260px); margin:0; overflow:hidden; border:0; background:#f2f4fa; box-shadow:none; }
+.about-photo--left,.about-photo--right { border-radius:0; transform:none; }
 .about-photo > img { display:block; width:100%; height:100%; object-fit:cover; }
 .about-photo .photo-upload { position:absolute; inset:0; opacity:0; transition:opacity .35s ease; }
 .photo-upload.is-ready { opacity:1; }
 
 /* Origin lab: a tactile, self-contained window into the first physics simulation. */
-.origin-lab { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr); align-items:center; gap:56px; padding:25px 0 130px; }
+.origin-lab { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(260px,.85fr); align-items:center; gap:56px; padding:25px 0 70px; }
 .lab-stage { position:relative; min-height:420px; overflow:hidden; border:1px solid rgba(42,48,72,.24); background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(233,238,247,.94)); box-shadow:inset 0 0 80px rgba(56,107,255,.06),0 18px 45px rgba(33,43,78,.08); }
 .lab-stage::before { content:""; position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(56,75,118,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(56,75,118,.09) 1px,transparent 1px); background-size:32px 32px; mask-image:linear-gradient(to bottom,black,transparent); }
 #physics-canvas { position:absolute; inset:0; width:100%; height:100%; cursor:crosshair; touch-action:none; }
@@ -102,7 +101,7 @@ h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif
 .lab-story > p:not(.eyebrow) { color:var(--muted); line-height:1.58; }
 
 /* The CUDA chapter faces inward: narrative left, a ready-to-fill GIF stage right. */
-.heat-story { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr); align-items:center; gap:44px; padding:25px 0 125px; }
+.heat-story { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr); align-items:center; gap:44px; padding:25px 0 70px; }
 .heat-story-copy { max-width:680px; }
 .heat-story h2 { margin:14px 0 25px; font-size:clamp(34px,4.2vw,54px); }
 .heat-story-copy > p:not(.eyebrow) { color:var(--muted); line-height:1.58; }
@@ -115,23 +114,40 @@ h2 { margin-bottom:0; font:500 clamp(36px,5vw,61px)/1 "Space Grotesk",sans-serif
 .heat-gif.is-ready + .heat-gif-placeholder { opacity:0; }
 .heat-pulse { width:94px; height:94px; border:1px solid rgba(255,174,102,.8); border-radius:50%; background:radial-gradient(circle,rgba(255,184,91,.78),rgba(232,95,61,.2) 52%,transparent 72%); box-shadow:0 0 42px rgba(242,129,69,.3); animation:heat-pulse 3s ease-in-out infinite alternate; }
 @keyframes heat-pulse { to { transform:scale(1.18); opacity:.65; } }
-@media (min-width:721px) and (max-width:900px) { .about-content { grid-template-columns:minmax(105px,.45fr) minmax(0,2fr) minmax(105px,.45fr); gap:22px; } .about-photo { height:175px; } .origin-lab,.heat-story { grid-template-columns:1fr; gap:24px; } .bubble-field { height:600px; } }
+@media (min-width:721px) and (max-width:900px) { .about-content { grid-template-columns:minmax(105px,.45fr) minmax(0,2fr) minmax(105px,.45fr); gap:22px; } .about-photo { height:175px; } .origin-lab,.heat-story { grid-template-columns:1fr; gap:24px; } }
 
 footer { padding:70px 0 28px; border-top:1px solid var(--line); }
 .footer-contact-links { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); width:min(100%,840px); margin:24px auto 90px; gap:12px; color:var(--muted); }
-.footer-contact-links a { display:flex; align-items:center; justify-content:center; flex-direction:column; min-height:76px; padding:10px 12px; border:1px solid var(--line); font:12px "DM Mono",monospace; text-align:center; transition:color .2s ease,border-color .2s ease,background .2s ease; }
+.footer-contact-links a { display:flex; align-items:center; justify-content:center; flex-direction:column; min-height:76px; padding:10px 12px; border:1px solid var(--line); font:700 13px "Nunito",sans-serif; text-align:center; transition:color .2s ease,border-color .2s ease,background .2s ease; }
 .footer-contact-links a:hover { color:var(--teal); border-color:var(--teal); background:rgba(0,127,104,.04); }
-.footer-contact-links small { margin-top:6px; color:var(--muted); font:10px "DM Mono",monospace; overflow-wrap:anywhere; }
-.footer-bottom { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font:12px "DM Mono",monospace; }
+.footer-contact-links small { margin-top:6px; color:var(--muted); font:600 12px "Nunito",sans-serif; overflow-wrap:anywhere; }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; color:var(--muted); font:600 13px "Nunito",sans-serif; }
 .footer-bottom div { display:flex; gap:24px; }
 
-/* Small destination pages opened from each project or interest bubble. */
+/* Shared project detail-page styles. */
 .case-page { padding:52px 0 110px; }
 .case-back { display:inline-block; margin-bottom:52px; color:var(--teal); font:12px "DM Mono",monospace; }
 .case-back:hover { color:var(--violet); }
 .case-intro { max-width:850px; margin-bottom:48px; }
 .case-intro h1 { max-width:820px; margin:20px 0; }
 .case-lead { max-width:760px; color:var(--muted); font-size:clamp(18px,2vw,22px); line-height:1.55; }
+.case-section { display:grid; grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr); gap:36px; max-width:1000px; margin:0 0 54px; padding:30px 0 0; border-top:1px solid var(--line); }
+.case-section h2 { margin:0; font-size:clamp(30px,4vw,46px); }
+.case-section-copy { color:var(--muted); line-height:1.7; }
+.case-section-copy p:first-child { margin-top:0; }
+.case-result { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(220px,.85fr); align-items:center; gap:32px; }
+.case-result .case-visual,.case-result .case-physics-stage { width:100%; min-height:360px; margin:0; }
+.case-result-copy { color:var(--muted); line-height:1.7; }
+.case-result-copy h3 { margin:0 0 12px; color:var(--ink); font:800 24px "Nunito",sans-serif; }
+.case-github { display:inline-flex; align-items:center; gap:10px; margin-top:10px; border-bottom:1px solid var(--teal); padding-bottom:7px; color:var(--teal); font:12px "DM Mono",monospace; }
+.case-github:hover { color:var(--violet); border-color:var(--violet); }
+.case-media-placeholder { position:relative; display:grid; min-height:360px; padding:28px; overflow:hidden; place-items:center; border:1px dashed rgba(42,48,72,.32); background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(233,238,247,.94)); color:var(--muted); text-align:center; }
+.case-demo-gif { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .35s ease; }
+.case-demo-gif.is-ready { opacity:1; }
+.case-demo-gif.is-ready + .case-demo-fallback { opacity:0; }
+.case-demo-fallback { position:relative; z-index:1; transition:opacity .25s ease; }
+.case-media-placeholder span { color:var(--ink); font:11px "DM Mono",monospace; letter-spacing:.08em; text-transform:uppercase; }
+.case-media-placeholder small { max-width:300px; line-height:1.6; }
 .case-visual { max-width:1000px; min-height:460px; }
 .case-physics-stage { min-height:460px; }
 .case-notes { display:grid; grid-template-columns:1fr 1fr; gap:44px; max-width:1000px; margin-top:74px; padding-top:26px; border-top:1px solid var(--line); }
@@ -145,4 +161,21 @@ footer { padding:70px 0 28px; border-top:1px solid var(--line); }
 .photo-note--lime { color:var(--ink); background:var(--lime); transform:rotate(-3deg) translateY(14px); }
 
 /* Compact single-column layout for phones. */
-@media (max-width:720px) { .site-header,main,footer { width:min(100% - 32px,1200px); } .hero { min-height:570px; padding:70px 0; } .hero h1,.hero-copy,.hero-actions,.hero > .eyebrow { max-width:100%; } .section-heading,.about,.origin-lab,.heat-story { grid-template-columns:1fr; gap:18px; } .about { padding:80px 0; } .about-content { grid-template-columns:1fr 1fr; gap:20px 14px; } .about-copy { grid-column:1 / -1; grid-row:1; } .about-photo { height:180px; } .about-photo--left { grid-column:1; grid-row:2; } .about-photo--right { grid-column:2; grid-row:2; } .origin-lab { padding:10px 0 85px; } .lab-stage { min-height:350px; } .heat-story { padding:10px 0 85px; } .heat-visual { min-height:290px; } .bubble-field { height:830px; margin-top:22px; } .bubble--project { --bubble-size:220px; } .bubble--physics { --bubble-size:205px; } .bubble--interest { --bubble-size:136px; } .bubble-caption { right:0; bottom:0; max-width:45%; text-align:right; line-height:1.4; } .case-page { padding:34px 0 70px; } .case-back { margin-bottom:32px; } .case-notes { grid-template-columns:1fr; gap:12px; margin-top:48px; } .case-visual,.case-physics-stage { min-height:340px; } .photo-notes { min-height:460px; flex-wrap:wrap; gap:12px; padding:25px 14px 65px; } .photo-note { width:130px; height:130px; font-size:10px; } .footer-contact-links { margin-bottom:65px; gap:8px; } .footer-contact-links a { padding:10px 6px; font-size:10px; } .footer-contact-links small { font-size:8px; } .footer-bottom { align-items:flex-start; flex-direction:column; gap:18px; } }
+@media (max-width:720px) { .site-header,main,footer { width:min(100% - 32px,1200px); } .hero { min-height:570px; padding:70px 0; } .hero h1,.hero-copy,.hero-actions,.hero > .eyebrow { max-width:100%; } .section-heading,.about,.origin-lab,.heat-story { grid-template-columns:1fr; gap:18px; } .about { padding:80px 0; } .about-content { grid-template-columns:1fr 1fr; gap:20px 14px; } .about-copy { grid-column:1 / -1; grid-row:1; } .about-photo { height:180px; } .about-photo--left { grid-column:1; grid-row:2; } .about-photo--right { grid-column:2; grid-row:2; } .origin-lab { padding:10px 0 85px; } .lab-stage { min-height:350px; } .heat-story { padding:10px 0 85px; } .heat-visual { min-height:290px; } .case-page { padding:34px 0 70px; } .case-back { margin-bottom:32px; } .case-notes { grid-template-columns:1fr; gap:12px; margin-top:48px; } .case-section,.case-result { grid-template-columns:1fr; gap:18px; } .case-section { margin-bottom:40px; } .case-result .case-visual,.case-result .case-physics-stage,.case-media-placeholder { min-height:290px; } .case-visual,.case-physics-stage { min-height:340px; } .photo-notes { min-height:460px; flex-wrap:wrap; gap:12px; padding:25px 14px 65px; } .photo-note { width:130px; height:130px; font-size:10px; } .footer-contact-links { margin-bottom:65px; gap:8px; } .footer-contact-links a { padding:10px 6px; font-size:10px; } .footer-contact-links small { font-size:8px; } .footer-bottom { align-items:flex-start; flex-direction:column; gap:18px; } }
+
+/* Keep the narrative sections close enough to read as one story. */
+@media (max-width:720px) {
+  .about { padding:50px 0; }
+  .origin-lab,.heat-story { padding-bottom:50px; }
+
+}
+
+@media (max-width:720px) {
+  .project-card { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); min-height:185px; border-radius:18px; }
+  .project-card-copy { padding:16px; }
+  .project-card-title { font-size:clamp(20px,5vw,27px); }
+  .project-card-preview { min-height:185px; }
+  .project-card-placeholder { padding:10px; }
+  .project-card-placeholder small { font-size:10px; }
+  .footer-contact-links a { font-size:11px; }
+}

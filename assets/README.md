@@ -6,18 +6,20 @@ Add JPG images here using these exact filenames. The website will use them autom
 - `about-right.jpg` — a photo to flank the About text on the right.
 - `hero-art.jpg` — a wide Canva collage for the top of the page. Export around 2000 × 1200 pixels.
 
-Use photos of yourself working, equipment, or anything that captures your curiosity. Each pair crops to playful organic shapes. Until you add them, colorful illustrated placeholders fill the slots.
+Use photos of yourself working, equipment, or anything that captures your curiosity. The About photos display as clean rectangles. Until you add them, colorful illustrated placeholders fill the slots.
 
 ## CUDA heat simulation
 
 `heat-simulation.gif` is the looping visualization used in the CUDA story section. Its frames come from the HeatEngine CUDA solver's center slice (96 × 96 × 64 grid, 144 solver steps). The exporter and dependency-free GIF renderer are in `../tools/`.
 
-## Project bubble photos
+## Project card previews
 
-Add JPG images here to use them as the circular backgrounds in the Selected Work bubbles:
+Add JPG images here to use them as the right-side previews in the Selected Work cards. Wide images work best; each card crops its image to fill the preview area.
 
-- `bubble-cuda.jpg` for the CUDA heat simulation.
-- `bubble-physics.jpg` for the physics sandbox.
-- `bubble-photography.jpg` for the photography interest.
+- `vector-compute-engine.jpg` for the Vector Compute Engine.
+- `analog-music-light-interface.jpg` for the Analog Music/Light Interface.
+- `music-synthesizer.jpg` for the Music Synthesizer.
+- `neutrino-simulation.gif` for the Neutrino Simulation card and project page (Cherenkov simulation preview).
+- `physics-sandbox.jpg` for the Physics Sandbox.
 
-The site crops each image to a circle and adds a color overlay so the label stays readable. If an image is missing, the bubble keeps its bright gradient background.
+The Heat Simulation card uses the existing `heat-simulation.gif`. If a preview image is missing, the card shows a soft-color placeholder with the expected filename.

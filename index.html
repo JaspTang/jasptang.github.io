@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Jasper Tang's portfolio — electrical & computer engineer, persistently curious about the world."
+      content="Jasper Tang's portfolio"
     />
     <title>Jasper Tang — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -23,7 +23,7 @@
 
     <!-- Persistent site navigation -->
     <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="Jasper Tang home">JASP<span>/</span>TANG</a>
+      <a class="wordmark" href="#top" aria-label="Jasper Tang home"><img src="assets/Jasper Tang.png" alt="" /></a>
       <nav aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#work">Work</a>
@@ -38,9 +38,8 @@
         <!-- Add assets/hero-art.jpg to display a personal Canva collage here. -->
         <img class="hero-art" src="assets/hero-art.jpg" alt="" />
         <p class="eyebrow"><span class="status-dot"></span> Portfolio / 2026</p>
-        <h1 id="hero-title">There's nothing more interesting than the world <em>around us.</em></h1>
-        <p class="hero-copy">
-          I use the tools I learn to understand it a little better.
+        <h1 id="hero-title">The world around us is infinitely interesting.</em></h1>
+        <p class="hero-copy"> <!--- can add a potential subtitle here if feel inclined -->
         </p>
         <div class="hero-actions">
           <a class="text-link" href="#about">Get to know me <span aria-hidden="true">↓</span></a>
@@ -57,11 +56,9 @@
           </figure>
           <div class="about-copy">
             <p class="eyebrow">01 / About me</p>
-            <h2 id="about-title">The world is full of so many things waiting to be explored.</h2>
+            <h2 id="about-title">"What starts here changes the world."</h2>
             <p>
-              I know it might be trite, but my curiosity has always led me to dive down some of the deepest rabbit holes.
-              The neverending nature of curiosity is so exciting, and it's what motivates me to continually build.
-            </p>
+            I'm a Sophomore ECE at UT Austin, learning more about digital IC's, computer architecture, and embedded systems.</p>
             <a class="text-link" href="mailto:hello@example.com">Let’s work together <span aria-hidden="true">↗</span></a>
           </div>
 
@@ -88,20 +85,17 @@
         </div>
         <div class="lab-story">
           <p class="eyebrow">02 / First model</p>
-          <h2 id="origin-title">Before I knew the language for it, I was already modeling the world.</h2>
+          <h2 id="origin-title">I know Java, I just learnt Newton's Laws - can I model gravity using code?</h2>
           <p>
-            In eighth grade, I built a physics simulation for bouncing balls:
-            gravity, momentum, friction, energy loss. It was a small attempt to
-            understand why things move the way they do—I had just learned F=ma and 
-            it truly amazed me I was able to simulate the <strong>laws of nature</strong>
-            in <strong>100 lines of code</strong>. 
+            In eighth grade, I thought it was so cool you could describe gravity using Newton's laws.
+            How much cooler, I thought, would it be if I could personally simulate it using code...
+            so I built a physics simulation involving gravity, momentum, friction, energy loss.
           </p>
           <p>
-            It was the first time I felt the particular thrill of turning a question 
-            into a system I could touch and experiment with. Whether I’m walking to class, standing
-            on a sidewalk, or sitting in a park, <strong>I’m drawn to the complexity
-            hiding in plain sight—and to the possibility of making that complexity
-            a little more legible.</strong>
+          <strong>It was a small attempt to understand why things move the way they do.
+            And more importantly it was the first time I felt
+            the particular thrill of turning a question I had into a system I could
+            touch and experiment with. </strong>
           </p>
         </div>
       </section>
@@ -110,18 +104,18 @@
       <section class="heat-story" id="heat" aria-labelledby="heat-title">
         <div class="heat-story-copy">
           <p class="eyebrow">03 / A different scale</p>
-          <h2 id="heat-title">Then I wanted to understand the machine doing the thinking.</h2>
+          <h2 id="heat-title">Computers are able to perform trillions of calculations a second. How does that work?</h2>
           <p>
-            Diving down that rabbit hole, when I learned the beautifully simple differential 
-            equations behind heat diffusion, I used parallel computing to simulate it. 
-            I built a heat simulation with CUDA to learn how GPUs model a changing
-            world in parallel. That project opened another question: how does the
-            hardware itself make all of this possible?
+            Jumping to the present day, my curiosity has led me way further down the rabbit hole...
+            One question has always hit me from childhood: how are a whole bunch of 0's and 1's able to
+            create lifelike games seemingly updating at 100 times a second. With my new learnt knowledge
+            in computer architecture and digital logic design, I could finalyl confront this question.
           </p>
           <p>
-            Now I want to go deeper into high performance computing and computer
-            architecture—how we teach silicon to think, and how much further we
-            can take an idea when we understand the machine beneath it.
+            I spent my time learning about GPU architecture while experimenting with CUDA to model some
+            heat-related differential equations. It will never not be cool to me how I can program a GPU to
+            run millions of operations at the same time. For this reason, I am now diving into building my own
+            barebones GPU!
           </p>
         </div>
         <figure class="heat-visual">
@@ -137,39 +131,89 @@
             <p class="eyebrow">04 / Right now</p>
             <h2 id="now-title">Now, what am I up to?</h2>
             <p>
-              It may seem like we know everything, but I love that we don't. Computing is still evolving, and every new architecture, accelerator, and manufacturing breakthrough opens another set of questions. I started with something as simple as wondering why my computer crashed while playing Minecraft. Since then, I have kept asking what lies underneath each layer of computation. Now, I want to really understand how we can take the laws of physics, turn them into transistors, turn those transistors into logic, and ultimately turn a piece of silicon into a machine capable of computation - a machine only made possible through generations of human curiosity. 
+            It may seem like we know everything, but I love that we don't. Computing is still evolving, and every new architecture, accelerator, and manufacturing breakthrough opens another set of questions. </p>
+            <p>
+            I started with something as simple as wondering why my computer crashed while playing Minecraft. Since then, I have kept asking what lies underneath each layer of computation. Now, I want to really understand how we can take the laws of physics, turn them into transistors, turn those transistors into logic, and ultimately turn a piece of silicon into a machine capable of computation - a machine only made possible through generations of human curiosity.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Project work follows the personal introduction in focused dark mode. -->
+      <!-- Project cards continue the personal introduction in one easy-to-scan list. -->
       <section class="work" id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <p class="eyebrow">05 / Selected work</p>
-          <h2 id="work-title">A few things I’ve been making.</h2>
+          <h2 id="work-title">My Recent Projects</h2>
         </div>
 
-        <div class="bubble-field" role="group" aria-label="Projects and interests">
-          <a class="bubble bubble--project bubble--cuda" href="projects/cuda-heat-simulation.html" data-bubble data-kind="project" data-x=".39" data-y=".49" aria-label="Open the CUDA heat simulation project">
-            <img class="bubble-image" src="assets/bubble-cuda.jpg" alt="" aria-hidden="true" />
-            <span class="bubble-kicker">GPU / CUDA</span>
-            <span class="bubble-title">Heat<br />Simulation</span>
-            <span class="bubble-hint">Explore project <span aria-hidden="true">↗</span></span>
+        <div class="project-list" role="list" aria-label="Selected projects">
+          <a class="project-card project-card--vector" role="listitem" href="projects/vector-compute-engine.html" aria-labelledby="project-vector-title">
+            <div class="project-card-copy">
+              <span class="project-card-status">WIP</span>
+              <h3 class="project-card-title" id="project-vector-title">Vector Compute Engine</h3>
+              <p class="project-card-year">Began 07/26</p>
+            </div>
+            <figure class="project-card-preview">
+              <img class="project-card-image" src="assets/vector-compute-engine.jpg" alt="A sneak peek at the Vector Compute Engine" />
+              <figcaption class="project-card-placeholder"><span>Preview image</span><small>assets/vector-compute-engine.jpg</small></figcaption>
+            </figure>
           </a>
-          <a class="bubble bubble--project bubble--physics" href="projects/physics-simulation.html" data-bubble data-kind="project" data-x=".65" data-y=".53" aria-label="Open the physics simulation project">
-            <img class="bubble-image" src="assets/bubble-physics.jpg" alt="" aria-hidden="true" />
-            <span class="bubble-kicker">ORIGIN EXPERIMENT</span>
-            <span class="bubble-title">Physics<br />Sandbox</span>
-            <span class="bubble-hint">Explore project <span aria-hidden="true">↗</span></span>
+
+          <a class="project-card project-card--analog" role="listitem" href="projects/analog-music-light-interface.html" aria-labelledby="project-analog-title">
+            <div class="project-card-copy">
+              <span class="project-card-status">WIP</span>
+              <h3 class="project-card-title" id="project-analog-title">Analog Music/Light Interface</h3>
+              <p class="project-card-year">Began 09/26</p>
+            </div>
+            <figure class="project-card-preview">
+              <img class="project-card-image" src="assets/analog-music-light-interface.jpg" alt="A sneak peek at the Analog Music and Light Interface" />
+              <figcaption class="project-card-placeholder"><span>Preview image</span><small>assets/analog-music-light-interface.jpg</small></figcaption>
+            </figure>
           </a>
-          <a class="bubble bubble--interest bubble--photo" href="projects/photography.html" data-bubble data-kind="interest" data-x=".86" data-y=".25" aria-label="Open photography interests">
-            <img class="bubble-image" src="assets/bubble-photography.jpg" alt="" aria-hidden="true" />
-            <span class="bubble-kicker">HOBBY</span>
-            <span class="bubble-title">Photo-<br />graphy</span>
-            <span class="bubble-hint" aria-hidden="true">↗</span>
+
+          <a class="project-card project-card--heat" role="listitem" href="projects/cuda-heat-simulation.html" aria-labelledby="project-heat-title">
+            <div class="project-card-copy">
+              <h3 class="project-card-title" id="project-heat-title">Heat Simulation</h3>
+              <p class="project-card-year">06/2026-09/2026</p>
+            </div>
+            <figure class="project-card-preview">
+              <img class="project-card-image" src="assets/heat-simulation.gif" alt="Heat spreading through a simulated material" />
+              <figcaption class="project-card-placeholder"><span>Preview image</span><small>assets/heat-simulation.gif</small></figcaption>
+            </figure>
           </a>
-          <p class="bubble-caption" aria-hidden="true">Little worlds, connected by curiosity.</p>
+
+          <a class="project-card project-card--synth" role="listitem" href="projects/music-synthesizer.html" aria-labelledby="project-synth-title">
+            <div class="project-card-copy">
+              <h3 class="project-card-title" id="project-synth-title">Music Synthesizer</h3>
+              <p class="project-card-year">04/2026</p>
+            </div>
+            <figure class="project-card-preview">
+              <img class="project-card-image" src="assets/music-synthesizer.jpg" alt="A sneak peek at the Music Synthesizer" />
+              <figcaption class="project-card-placeholder"><span>Preview image</span><small>assets/music-synthesizer.jpg</small></figcaption>
+            </figure>
+          </a>
+
+          <a class="project-card project-card--neutrino" role="listitem" href="projects/neutrino-simulation.html" aria-labelledby="project-neutrino-title">
+            <div class="project-card-copy">
+              <h3 class="project-card-title" id="project-neutrino-title">Neutrino Simulation</h3>
+              <p class="project-card-year">04/2025-06/2025</p>
+            </div>
+            <figure class="project-card-preview">
+              <img class="project-card-image" src="assets/neutrino-simulation.gif" alt="Cherenkov radiation simulation preview" />
+              <figcaption class="project-card-placeholder"><span>Preview image</span><small>assets/neutrino-simulation.gif</small></figcaption>
+            </figure>
+          </a>
+
+          <a class="project-card project-card--physics" role="listitem" href="projects/physics-simulation.html" aria-labelledby="project-physics-title">
+            <div class="project-card-copy">
+              <h3 class="project-card-title" id="project-physics-title">Physics Sandbox</h3>
+              <p class="project-card-year">2021</p>
+            </div>
+            <figure class="project-card-preview">
+              <img class="project-card-image" src="assets/physics-sandbox.jpg" alt="A sneak peek at the Physics Sandbox" />
+              <figcaption class="project-card-placeholder"><span>Preview image</span><small>assets/physics-sandbox.jpg</small></figcaption>
+            </figure>
+          </a>
         </div>
       </section>
     </main>
@@ -190,7 +234,7 @@
 
     <!-- Reveal uploaded photos only after they load; SVG fallbacks remain otherwise. -->
     <script>
-      document.querySelectorAll(".photo-upload, .hero-art, .heat-gif, .bubble-image").forEach((image) => {
+      document.querySelectorAll(".photo-upload, .hero-art, .heat-gif, .project-card-image").forEach((image) => {
         if (image.complete && image.naturalWidth > 0) image.classList.add("is-ready");
         image.addEventListener("load", () => image.classList.add("is-ready"));
         image.addEventListener("error", () => image.remove());

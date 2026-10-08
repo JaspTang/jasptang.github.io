@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jasper Tang's music synthesizer project." />
+    <title>Music Synthesizer — Jasper Tang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
+      <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
+    </header>
+    <main class="case-page">
+      <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
+      <section class="case-intro">
+        <p class="eyebrow">PROJECT / AUDIO · DSP</p>
+        <h1>Building a music synthesizer.</h1>
+        <p class="case-lead">A project page for exploring how code can become sound. I’ll use this space to explain the ideas behind the synthesizer and share examples of what it can make.</p>
+      </section>
+      <section class="case-section" aria-labelledby="inspiration-title">
+        <div><h2 id="inspiration-title">Inspiration</h2></div>
+        <div class="case-section-copy"><p>This project starts with a curiosity about turning sound into something I can shape with code. Add the personal spark, musical reference, or technical question that first led you to build it.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="process-title">
+        <div><h2 id="process-title">Process</h2></div>
+        <div class="case-section-copy"><p>Describe how the synthesizer creates and shapes sound, which controls or components you built, and what changed as you experimented. Include the languages, libraries, and design choices that matter to the project.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="results-title">
+        <div><h2 id="results-title">Results</h2></div>
+        <div class="case-section-copy"><p>Add a brief explanation of what the synthesizer can do and what you learned while building it. A short GIF, video, or audio sample can show the instrument in action.</p></div>
+      </section>
+      <section class="case-result" aria-label="Project result and code">
+        <figure class="case-media-placeholder">
+          <img class="case-demo-gif" src="../assets/music-synthesizer.gif" alt="Music synthesizer project preview" />
+          <figcaption class="case-demo-fallback"><span>Music synthesizer preview</span><br /><small>Drop a GIF named <code>music-synthesizer.gif</code> into the <code>assets</code> folder to show it here.</small></figcaption>
+        </figure>
+        <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+    <script>
+      const demoGif = document.querySelector(".case-demo-gif");
+      if (demoGif.complete && demoGif.naturalWidth > 0) demoGif.classList.add("is-ready");
+      demoGif.addEventListener("load", () => demoGif.classList.add("is-ready"));
+      demoGif.addEventListener("error", () => demoGif.remove());
+    </script>
+  </body>
+</html>

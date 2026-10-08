@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jasper Tang's neutrino simulation project." />
+    <title>Neutrino Simulation — Jasper Tang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="atmosphere" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
+      <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
+    </header>
+    <main class="case-page">
+      <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
+      <section class="case-intro">
+        <p class="eyebrow">PROJECT / PARTICLE PHYSICS</p>
+        <h1>Neutrinos, explored through simulation.</h1>
+        <p class="case-lead">A project page for exploring neutrinos through a computational model. I’ll use this space to share the question behind the simulation and make its behavior easier to see.</p>
+      </section>
+      <section class="case-section" aria-labelledby="inspiration-title">
+        <div><h2 id="inspiration-title">Inspiration</h2></div>
+        <div class="case-section-copy"><p>Neutrinos are difficult to detect, which makes them an intriguing subject for a visual model. This section is ready for the specific question, source, or experiment that inspired the project.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="process-title">
+        <div><h2 id="process-title">Process</h2></div>
+        <div class="case-section-copy"><p>Use this section to explain the equations or rules, the parameters you can change, and how the simulation advances. Add the tools and implementation details here as the project develops.</p></div>
+      </section>
+      <section class="case-section" aria-labelledby="results-title">
+        <div><h2 id="results-title">Results</h2></div>
+        <div class="case-section-copy"><p>Add a short explanation of the outcome and what you learned from it. A looping GIF or recorded visualization can make the simulation easy to explore at a glance.</p></div>
+      </section>
+      <section class="case-result" aria-label="Project result and code">
+        <figure class="case-media-placeholder">
+          <img class="case-demo-gif" src="../assets/neutrino-simulation.gif" alt="Animated Cherenkov radiation simulation" />
+          <figcaption class="case-demo-fallback"><span>Cherenkov simulation preview</span><br /><small>The animated Cherenkov simulation preview could not be loaded.</small></figcaption>
+        </figure>
+        <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </main>
+    <script>
+      const demoGif = document.querySelector(".case-demo-gif");
+      if (demoGif.complete && demoGif.naturalWidth > 0) demoGif.classList.add("is-ready");
+      demoGif.addEventListener("load", () => demoGif.classList.add("is-ready"));
+      demoGif.addEventListener("error", () => demoGif.remove());
+    </script>
+  </body>
+</html>
