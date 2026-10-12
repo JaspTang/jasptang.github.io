@@ -75,6 +75,7 @@ a.project-card:hover .project-card-image.is-ready { transform:scale(1.025); }
 
 /* About and contact sections. */
 .about { display:block; padding:65px 0 70px; border-top:1px solid var(--line); }
+.about > .about-content { display:block; }
 .about-content { position:relative; display:grid; grid-template-columns:minmax(145px,.62fr) minmax(0,2fr) minmax(145px,.62fr); align-items:center; gap:clamp(24px,4vw,58px); }
 .now-section .about-content { display:block; }
 .about-copy { max-width:900px; margin:0 auto; text-align:center; }
