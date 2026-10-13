@@ -1,27 +1,25 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jasper Tang's music synthesizer project." />
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jasper Tang's music synthesizer project.">
     <title>Music Synthesizer — Jasper Tang</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&amp;family=Nunito:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt=""></a>
       <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
     </header>
     <main class="case-page">
       <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
-      <section class="case-intro">
-        <p class="eyebrow">PROJECT / AUDIO · DSP</p>
-        <h1>Building a music synthesizer.</h1>
-        <p class="case-lead">A project page for exploring how code can become sound. I’ll use this space to explain the ideas behind the synthesizer and share examples of what it can make.</p>
+      <section class="case-intro" style="--case-image: url('../assets/music-synthesizer.jpg')">
+        <h1><span style="font-size: clamp(42px, 6vw, 78px); letter-spacing: -0.045em;">Music Synthesizer (MCU-based)</span></h1>
+        <p class="eyebrow">built &amp; Completed 04/2026</p>
       </section>
       <section class="case-section" aria-labelledby="inspiration-title">
         <div><h2 id="inspiration-title">Inspiration</h2></div>
@@ -31,23 +29,115 @@
         <div><h2 id="process-title">Process</h2></div>
         <div class="case-section-copy"><p>Describe how the synthesizer creates and shapes sound, which controls or components you built, and what changed as you experimented. Include the languages, libraries, and design choices that matter to the project.</p></div>
       </section>
-      <section class="case-section" aria-labelledby="results-title">
+      <section class="case-section case-section--results" aria-labelledby="results-title">
         <div><h2 id="results-title">Results</h2></div>
-        <div class="case-section-copy"><p>Add a brief explanation of what the synthesizer can do and what you learned while building it. A short GIF, video, or audio sample can show the instrument in action.</p></div>
-      </section>
-      <section class="case-result" aria-label="Project result and code">
-        <figure class="case-media-placeholder">
-          <img class="case-demo-gif" src="../assets/music-synthesizer.gif" alt="Music synthesizer project preview" />
-          <figcaption class="case-demo-fallback"><span>Music synthesizer preview</span><br /><small>Drop a GIF named <code>music-synthesizer.gif</code> into the <code>assets</code> folder to show it here.</small></figcaption>
-        </figure>
-        <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
+        <div class="case-section-copy"><p>Explore the synthesizer through its 3D scan and watch it in action in the project video.</p></div>
+        <div class="results-media">
+          <section class="scan-feature" aria-labelledby="synth-scan-title">
+            <div class="scan-feature-heading">
+              <p class="eyebrow">PROJECT / 3D OBJECT SCAN</p>
+              <h3 id="synth-scan-title">Take a closer look.</h3>
+              <p>Drag to orbit the scan and scroll to zoom.</p>
+            </div>
+            <div class="scan-viewer" data-scan-viewer="">
+              <canvas data-scan-canvas="" aria-label="Interactive 3D scan of the music synthesizer" data-engine="three.js r180" width="998" height="648" style="touch-action: none;"></canvas>
+              
+              <span class="scan-hint" aria-hidden="true">DRAG TO ROTATE · SCROLL TO ZOOM</span>
+            </div>
+          </section>
+          <section class="video-feature" aria-labelledby="synth-video-title">
+            <div class="video-feature-heading">
+              <p class="eyebrow">PROJECT / DEMONSTRATION</p>
+              <h3 id="synth-video-title">The synthesizer in action.</h3>
+            </div>
+            <div class="video-frame-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/-uXZJQF8O5g" title="Music Synthesizer project video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+            </div>
+            <p class="video-feature-link">Prefer YouTube? <a href="https://www.youtube.com/watch?v=-uXZJQF8O5g" target="_blank" rel="noreferrer">Watch the video there <span aria-hidden="true">↗</span></a>.</p>
+          </section>
+          <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
+        </div>
       </section>
     </main>
-    <script>
-      const demoGif = document.querySelector(".case-demo-gif");
-      if (demoGif.complete && demoGif.naturalWidth > 0) demoGif.classList.add("is-ready");
-      demoGif.addEventListener("load", () => demoGif.classList.add("is-ready"));
-      demoGif.addEventListener("error", () => demoGif.remove());
+    <script type="importmap">
+      {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
     </script>
-  </body>
-</html>
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+      import { MTLLoader } from "three/addons/loaders/MTLLoader.js";
+      import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+
+      const viewer = document.querySelector("[data-scan-viewer]");
+      const canvas = document.querySelector("[data-scan-canvas]");
+      const status = document.querySelector("[data-scan-status]");
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color("#eef1f7");
+      const camera = new THREE.PerspectiveCamera(34, 1, 0.01, 100);
+      camera.position.set(3.2, 2.25, 3.2);
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.2;
+
+      scene.add(new THREE.HemisphereLight(0xffffff, 0x9ba4b8, 2.1));
+      const keyLight = new THREE.DirectionalLight(0xffffff, 2.7);
+      keyLight.position.set(3, 5, 4);
+      scene.add(keyLight);
+      const fillLight = new THREE.DirectionalLight(0x8eb5ff, 1.2);
+      fillLight.position.set(-4, 2, -3);
+      scene.add(fillLight);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.06;
+      controls.minDistance = 1.2;
+      controls.maxDistance = 8;
+      controls.target.set(0, 0, 0);
+
+      function resizeViewer() {
+        const width = viewer.clientWidth;
+        const height = viewer.clientHeight;
+        if (!width || !height) return;
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+        renderer.setSize(width, height, false);
+      }
+      new ResizeObserver(resizeViewer).observe(viewer);
+      resizeViewer();
+
+      const scanPath = "../assets/music-synthesizer-scan/";
+      const manager = new THREE.LoadingManager();
+      manager.onError = () => {
+        status.textContent = "The scan could not be loaded. Check your connection and refresh the page.";
+      };
+      new MTLLoader(manager).load(`${scanPath}3DModel.mtl`, (materials) => {
+        materials.preload();
+        new OBJLoader(manager).setMaterials(materials).load(`${scanPath}3DModel.obj`, (model) => {
+          const bounds = new THREE.Box3().setFromObject(model);
+          const center = bounds.getCenter(new THREE.Vector3());
+          const size = bounds.getSize(new THREE.Vector3());
+          const scale = 2.5 / Math.max(size.x, size.y, size.z);
+          model.position.sub(center.multiplyScalar(scale));
+          model.scale.setScalar(scale);
+          scene.add(model);
+          status.remove();
+        }, (event) => {
+          if (event.total) status.textContent = `Loading 3D scan… ${Math.round(event.loaded / event.total * 100)}%`;
+        }, () => {
+          status.textContent = "The scan could not be loaded. Check your connection and refresh the page.";
+        });
+      }, undefined, () => {
+        status.textContent = "The scan could not be loaded. Check your connection and refresh the page.";
+      });
+
+      renderer.setAnimationLoop(() => {
+        controls.update();
+        renderer.render(scene, camera);
+      });
+    </script>
+  
+
+<span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span></body></html>

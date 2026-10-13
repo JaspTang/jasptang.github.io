@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Editor</title>
+    <style>
+      :root { color-scheme: light; font-family: "Segoe UI", Arial, sans-serif; color: #20243a; background: #f3f5fa; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 16px 22px; background: #fff; border-bottom: 1px solid #dfe3ed; }
+      h1 { margin: 0; font-size: 18px; }
+      .page-picker { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+      label, .hint { color: #60677b; font-size: 13px; }
+      select, button { min-height: 38px; border: 1px solid #ccd2df; border-radius: 6px; background: #fff; color: #20243a; font: inherit; }
+      select { padding: 0 30px 0 10px; }
+      button { padding: 0 12px; cursor: pointer; }
+      button:hover { border-color: #13806d; color: #087461; }
+      button:active { background: #edf7f5; }
+      #save { border-color: #087461; background: #087461; color: #fff; font-weight: 700; }
+      #save:hover { background: #075c4e; }
+      .toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; padding: 11px 22px; background: #fafbfe; border-bottom: 1px solid #dfe3ed; }
+      .toolbar .divider { width: 1px; height: 24px; margin: 0 3px; background: #dfe3ed; }
+      main { display: grid; grid-template-rows: auto 1fr; height: calc(100vh - 120px); min-height: 450px; }
+      .help { display: flex; justify-content: space-between; gap: 12px; padding: 9px 22px; color: #60677b; font-size: 12px; }
+      iframe { width: min(100% - 32px, 1440px); height: 100%; margin: 0 auto 16px; border: 1px solid #d6dbe6; border-radius: 8px; background: #fff; box-shadow: 0 5px 24px #25304b12; }
+      @media (max-width: 760px) { header { align-items: flex-start; flex-wrap: wrap; padding: 14px; } .page-picker { order: 3; width: 100%; margin: 0; } .page-picker select { flex: 1; } .toolbar { padding: 10px 14px; } main { height: calc(100vh - 190px); } .help { padding: 8px 14px; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Portfolio editor</h1>
+      <div class="page-picker">
+        <label for="page">Page</label>
+        <select id="page">
+          <option value="home">Home page</option>
+          <option value="analog">Analog Music/Light Interface</option>
+          <option value="heat">CUDA Heat Simulation</option>
+          <option value="music">Music Synthesizer</option>
+          <option value="neutrino">Neutrino Simulation</option>
+          <option value="photography">Photography</option>
+          <option value="physics">Physics Sandbox</option>
+          <option value="vector">Vector Compute Engine</option>
+        </select>
+      </div>
+      <button id="save" type="button">Save page</button>
+    </header>
+    <div class="toolbar" role="toolbar" aria-label="Text formatting">
+      <button type="button" data-command="bold" title="Bold"><strong>B</strong></button>
+      <button type="button" data-command="italic" title="Italic"><em>I</em></button>
+      <button type="button" data-command="underline" title="Underline"><u>U</u></button>
+      <span class="divider" aria-hidden="true"></span>
+      <button type="button" data-block="p">Paragraph</button>
+      <button type="button" data-block="h2">Heading</button>
+      <button type="button" data-block="h3">Small heading</button>
+      <button type="button" data-command="insertUnorderedList">• List</button>
+      <button id="link" type="button">Link</button>
+      <button type="button" data-command="undo" title="Undo">↶</button>
+      <button type="button" data-command="redo" title="Redo">↷</button>
+    </div>
+    <main>
+      <div class="help"><span>Click text in the page preview to edit it. Select text, then use the toolbar.</span><span id="status" role="status">Loading page…</span></div>
+      <iframe id="preview" title="Editable portfolio page preview"></iframe>
+    </main>
+    <script>
+      const preview = document.querySelector("#preview");
+      const pagePicker = document.querySelector("#page");
+      const status = document.querySelector("#status");
+      const pageFiles = {
+        analog: "analog-music-light-interface.html",
+        heat: "cuda-heat-simulation.html",
+        music: "music-synthesizer.html",
+        neutrino: "neutrino-simulation.html",
+        photography: "photography.html",
+        physics: "physics-simulation.html",
+        vector: "vector-compute-engine.html"
+      };
+      let ready = false;
+
+      function openPage() {
+        ready = false;
+        status.textContent = "Loading page…";
+        const path = pagePicker.value === "home" ? "index.html" : `projects/${pageFiles[pagePicker.value]}`;
+        preview.src = `/${path}?edit=${Date.now()}`;
+      }
+
+      preview.addEventListener("load", () => {
+        const doc = preview.contentDocument;
+        doc.designMode = "on";
+        doc.addEventListener("click", (event) => {
+          if (event.target.closest("a")) event.preventDefault();
+        }, true);
+        doc.addEventListener("submit", (event) => event.preventDefault(), true);
+        ready = true;
+        status.textContent = "Editing · changes are not saved yet";
+      });
+
+      document.querySelectorAll("[data-command], [data-block], #link").forEach((button) => {
+        button.addEventListener("mousedown", (event) => event.preventDefault());
+        button.addEventListener("click", () => {
+          if (!ready) return;
+          const doc = preview.contentDocument;
+          doc.body.focus();
+          if (button.dataset.command) doc.execCommand(button.dataset.command, false);
+          if (button.dataset.block) doc.execCommand("formatBlock", false, `<${button.dataset.block}>`);
+          if (button.id === "link") {
+            const url = window.prompt("Link address (for example https://example.com):");
+            if (url) doc.execCommand("createLink", false, url);
+          }
+          status.textContent = "Editing · changes are not saved yet";
+        });
+      });
+
+      pagePicker.addEventListener("change", openPage);
+      document.querySelector("#save").addEventListener("click", async () => {
+        if (!ready) return;
+        status.textContent = "Saving…";
+        const html = `<!doctype html>\n${preview.contentDocument.documentElement.outerHTML}`;
+        try {
+          const response = await fetch("/__save", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ page: pagePicker.value, html })
+          });
+          if (!response.ok) throw new Error(await response.text());
+          status.textContent = "Saved · reloading preview";
+          openPage();
+        } catch (error) {
+          status.textContent = `Save failed: ${error.message}`;
+        }
+      });
+
+      openPage();
+    </script>
+  </body>
+</html>

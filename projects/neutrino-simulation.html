@@ -1,27 +1,25 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jasper Tang's neutrino simulation project." />
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jasper Tang's neutrino simulation project.">
     <title>Neutrino Simulation — Jasper Tang</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&amp;family=Nunito:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt=""></a>
       <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
     </header>
     <main class="case-page">
       <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
-      <section class="case-intro">
-        <p class="eyebrow">PROJECT / PARTICLE PHYSICS</p>
-        <h1>Neutrinos, explored through simulation.</h1>
-        <p class="case-lead">A project page for exploring neutrinos through a computational model. I’ll use this space to share the question behind the simulation and make its behavior easier to see.</p>
+      <section class="case-intro" style="--case-image: url('../assets/neutrino-simulation.jpg')">
+        <h1>Neutrino Simulation</h1>
+        <p class="eyebrow">04/2025-06/2025</p>
       </section>
       <section class="case-section" aria-labelledby="inspiration-title">
         <div><h2 id="inspiration-title">Inspiration</h2></div>
@@ -37,10 +35,20 @@
       </section>
       <section class="case-result" aria-label="Project result and code">
         <figure class="case-media-placeholder">
-          <img class="case-demo-gif" src="../assets/neutrino-simulation.gif" alt="Animated Cherenkov radiation simulation" />
-          <figcaption class="case-demo-fallback"><span>Cherenkov simulation preview</span><br /><small>The animated Cherenkov simulation preview could not be loaded.</small></figcaption>
+          <img class="case-demo-gif" src="../assets/neutrino-simulation.gif" alt="Animated Cherenkov radiation simulation">
+          <figcaption class="case-demo-fallback"><span>Cherenkov simulation preview</span><br><small>The animated simulation preview could not be loaded.</small></figcaption>
         </figure>
         <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
+      </section>
+      <section class="slides-section" id="project-slides" aria-labelledby="slides-title">
+        <div class="slides-heading">
+          <div><p class="eyebrow">PROJECT / PRESENTATION</p><h2 id="slides-title">The final project, in slides.</h2></div>
+          <a class="case-github" data-slides-link="" target="_blank" rel="noreferrer" href="../assets/neutrino-simulation-slides.pdf">Open slides <span aria-hidden="true">â†—</span></a>
+        </div>
+        <div class="slides-frame-wrap">
+          <iframe title="Neutrino simulation final project slides" data-slides-frame="" src="../assets/neutrino-simulation-slides.pdf"></iframe>
+        </div>
+        <p class="slides-hint">If the preview does not display in your browser, <a data-slides-link="" target="_blank" rel="noreferrer" href="../assets/neutrino-simulation-slides.pdf">open the PDF in a new tab</a>.</p>
       </section>
     </main>
     <script>
@@ -48,6 +56,16 @@
       if (demoGif.complete && demoGif.naturalWidth > 0) demoGif.classList.add("is-ready");
       demoGif.addEventListener("load", () => demoGif.classList.add("is-ready"));
       demoGif.addEventListener("error", () => demoGif.remove());
+
+      // Add assets/neutrino-simulation-slides.pdf to show the embedded slide viewer.
+      const slidesPath = "../assets/neutrino-simulation-slides.pdf";
+      fetch(slidesPath, { method: "HEAD" }).then((response) => {
+        if (!response.ok) return;
+        document.querySelector("#project-slides").hidden = false;
+        document.querySelector("[data-slides-frame]").src = slidesPath;
+        document.querySelectorAll("[data-slides-link]").forEach((link) => link.href = slidesPath);
+      }).catch(() => {});
     </script>
-  </body>
-</html>
+  
+
+<span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span></body></html>

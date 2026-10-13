@@ -1,26 +1,25 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Jasper Tang's CUDA heat simulation project." />
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jasper Tang's CUDA heat simulation project.">
     <title>CUDA Heat Simulation — Jasper Tang</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono&amp;family=Nunito:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
   </head>
   <body>
     <div class="atmosphere" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt="" /></a>
+      <a class="wordmark" href="../index.html#top" aria-label="Jasper Tang home"><img src="../assets/Jasper Tang.png" alt=""></a>
       <nav aria-label="Project navigation"><a href="../index.html#work">Work</a><a href="../index.html#about">About</a></nav>
     </header>
     <main class="case-page">
       <a class="case-back" href="../index.html#work">← Back to the project bubbles</a>
-      <section class="case-intro">
-        <p class="eyebrow">PROJECT / CUDA · GPU COMPUTE</p>
-        <h1>Heat Simulation (GPU Interfacing)</h1>
+      <section class="case-intro" style="--case-image: url('../assets/heat-simulation.jpg')">
+        <h1>Heat Simulation&nbsp;</h1><h1>(GPU Interfaced)</h1>
+        <p class="eyebrow">06/2026-09/2026</p>
         <p class="case-lead"></p>
       </section>
       <section class="case-section" aria-labelledby="inspiration-title">
@@ -37,17 +36,18 @@
       </section>
       <section class="case-result" aria-label="Simulation result and project links">
         <figure class="heat-visual case-visual">
-          <img class="heat-gif" src="../assets/heat-simulation.gif" alt="Animation showing heat spreading through a simulated material" />
-          <figcaption class="heat-gif-placeholder"><span class="heat-pulse"></span><span>CUDA / HEAT DIFFUSION</span><small>Add or replace assets/heat-simulation.gif to update this demo.</small></figcaption>
+          <img class="heat-image" src="../assets/heat-simulation.gif" alt="Animation showing heat spreading through a simulated material">
+          <figcaption class="heat-image-placeholder"><span class="heat-pulse"></span><span>CUDA / HEAT DIFFUSION</span><small>The animated simulation preview could not be loaded.</small></figcaption>
         </figure>
         <div class="case-result-copy"><h3>Project code</h3><p>Browse my GitHub repositories for the source code and implementation notes.</p><a class="case-github" href="https://github.com/jasptang?tab=repositories" target="_blank" rel="noreferrer">View GitHub repositories <span aria-hidden="true">↗</span></a></div>
       </section>
     </main>
     <script>
-      const heatGif = document.querySelector(".heat-gif");
-      if (heatGif.complete && heatGif.naturalWidth > 0) heatGif.classList.add("is-ready");
-      heatGif.addEventListener("load", () => heatGif.classList.add("is-ready"));
-      heatGif.addEventListener("error", () => heatGif.remove());
+      const heatImage = document.querySelector(".heat-image");
+      if (heatImage.complete && heatImage.naturalWidth > 0) heatImage.classList.add("is-ready");
+      heatImage.addEventListener("load", () => heatImage.classList.add("is-ready"));
+      heatImage.addEventListener("error", () => heatImage.remove());
     </script>
-  </body>
-</html>
+  
+
+<span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span><span id="PING_CONTENT_PUSH_NOTIFICATION" style="display: none;"></span></body></html>

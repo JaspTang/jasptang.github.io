@@ -1,0 +1,9 @@
+# Diffuse texture material for the music synthesizer scan
+newmtl 3DModel_1
+Ka 0.2 0.2 0.2
+Kd 1 1 1
+Ks 0 0 0
+Ns 10
+d 1
+illum 2
+map_Kd 3DModel/baked_mesh_96f75e23_tex0.png
