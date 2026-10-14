@@ -1,12 +1,10 @@
 /* Design tokens: shared colors, typography, and surface treatments. */
 :root { --ink:#20243a; --base:#fff; --surface-color:rgb(255,255,255); --muted:#5b6275; --line:rgba(42,48,72,.2); --teal:#007f68; --blue:#386bff; --lime:#a8d82a; --coral:#ff604f; --violet:#8958d8; }
-@font-face { font-family:"Jaspersfont"; src:url("assets/fonts/Jaspersfont-Regular.otf") format("opentype"); font-style:normal; font-weight:400; font-display:swap; }
 
 /* Global reset and base document styles. */
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; overflow-x:hidden; color:var(--ink); background:var(--surface-color); font:16px "Nunito",sans-serif; }
-p:not(.eyebrow),.case-section-copy,.case-result-copy,.slides-hint,.video-feature-link,.project-card-placeholder small,.footer-contact-links small { font-family:"Jaspersfont","Nunito",sans-serif; }
 a { color:inherit; text-decoration:none; }
 
 /* Fixed atmospheric layers create a fluid, natural-technology backdrop. */
